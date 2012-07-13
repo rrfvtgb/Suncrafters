@@ -1,4 +1,5 @@
 #include "Main.h"
+
 Main::Main()
 {
     //ctor
@@ -8,7 +9,7 @@ Main::~Main()
 {
     //dtor
 }
-void TutorialApplication::createScene(void)
+void Main::createScene(void)
 {
     mSceneMgr->setAmbientLight(Ogre::ColourValue(0.5f, 0.5f, 0.5f));
 

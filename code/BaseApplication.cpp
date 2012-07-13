@@ -190,11 +190,11 @@ void BaseApplication::loadResources(void)
 void BaseApplication::go(void)
 {
 #ifdef _DEBUG
-    mResourcesCfg = "resources_d.cfg";
-    mPluginsCfg = "plugins_d.cfg";
+    mResourcesCfg = "bin/Debug/resources_d.cfg";
+    mPluginsCfg = "bin/Debug/plugins_d.cfg";
 #else
-    mResourcesCfg = "resources.cfg";
-    mPluginsCfg = "plugins.cfg";
+    mResourcesCfg = "bin/Release/resources.cfg";
+    mPluginsCfg = "bin/Release/plugins.cfg";
 #endif
 
     if (!setup())
