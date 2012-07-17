@@ -2,19 +2,51 @@
 
 #include <vector>
 
-LevelManager::LevelManager(Ogre::SceneManager* mSceneMgr){
-    this.mSceneMgr = mSceneMgr;
+LevelManager::LevelManager(Ogre::SceneManager* sceneMgr){
+    this.mSceneMgr = sceneMgr;
 }
 
 LevelManager::~LevelManager(){
-    //dtor
+    for(int x = 0;x<3;x++){
+        for(int y = 0; y < 3; y++){
+            delete m_Chunks[x][y];
+        }
+    }
+    delete this.mSceneMgr;
 }
 
-LevelManager::createWorld(){
+void LevelManager::createWorld(){
     Ogre::SceneNode* landscape = mSceneMgr->getRootSceneNode()->createChildSceneNode("landscape");
-    std::vector <Chunk*> chunksList;
+    Ogre::Vector2 chunkCoord;
 
-    for(int i = 0; i < 9; i++){
-        chunksList.push(new Chunk());
+    for(int x = 0; x < 3; x++){//instantiation of chunks
+        for(int y = 0; y < 3; y++){
+            chunkCoord.x = CHWIDTH * x;
+            chunkCoord.y = CHWIDTH * y;
+            this.m_Chunks[x][y] = new Chunk(this.mSceneMgr, chunkCoord);
+        }
     }
+    Chunk *ch = new Chunk();
+    for(int x = 0;x<3;x++){//surrounding chunks
+        for(int y = 0; y < 3; y++){
+            if(x+1 < 3){
+                this.m_Chunks[x][y]->mSurroundingChunks[0] = m_Chunks[x+1][y];
+            }else{
+                this.m_Chunks[x][y]->mSurroundingChunks[0] = ch;
+            }if(z-1 >= 0){
+                this.m_Chunks[x][y]->mSurroundingChunks[1] = m_Chunks[x][y-1];
+            }else{
+                this.m_Chunks[x][y]->mSurroundingChunks[1] = ch;
+            }if(x-1 >= 0){
+                this.m_Chunks[x][y]->mSurroundingChunks[2] = m_Chunks[x-1][y];
+            }else{
+                this.m_Chunks[x][y]->mSurroundingChunks[2] = ch;
+            }if(z+1 < 3){
+                this.m_Chunks[x][y]->mSurroundingChunks[3] = m_Chunks[x][y+1];
+            }else{
+                this.m_Chunks[x][y]->mSurroundingChunks[3] = ch;
+            }
+        }
+    }
+
 }

@@ -6,18 +6,19 @@
 class Block
 {
     public:
-        Block(Ogre::SceneManager mSceneMgr, Ogre::Vector3 coord);
+        Block();
+        Block(Ogre::SceneNode* chunkNode, Ogre::Vector3 coord);
         virtual ~Block();
 
         std::string mTexture;
-        Block[6] mSurroundingBlocks;
+        Block* mSurroundingBlocks[6];//y-1;x+1;y+1;x-1;z+1;z-1
         Ogre::Vector3 mCoord;
 
         void addFace(std::string face);
     protected:
     private:
 
-        Ogre::SceneManager mSceneMgr;
+        Ogre::SceneNode* mChunkNode;
 };
 
 #endif // BLOCK_H

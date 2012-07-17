@@ -6,13 +6,14 @@
 class LevelManager
 {
     public:
-        LevelManager(Ogre::SceneManager* mSceneMgr, int worldId);
+        LevelManager(Ogre::SceneManager* sceneMgr, int worldId);
         virtual ~LevelManager();
 
         void createWorld();
     protected:
     private:
         Ogre::SceneManager* mSceneMgr;
+        Chunk* m_Chunks[3][3];
 };
 
 #endif // LEVELMANAGER_H

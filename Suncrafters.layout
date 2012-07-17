@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<CodeBlocks_layout_file>
+	<ActiveTarget name="Release" />
+	<File name="code\BaseApplication.cpp" open="0" top="0" tabpos="0">
+		<Cursor position="6924" topLine="182" />
+	</File>
+	<File name="code\BaseApplication.h" open="0" top="0" tabpos="0">
+		<Cursor position="2643" topLine="64" />
+	</File>
+	<File name="code\Block.cpp" open="1" top="0" tabpos="4">
+		<Cursor position="366" topLine="0" />
+	</File>
+	<File name="code\Block.h" open="1" top="0" tabpos="5">
+		<Cursor position="328" topLine="0" />
+	</File>
+	<File name="code\Chunk.cpp" open="1" top="0" tabpos="7">
+		<Cursor position="1366" topLine="15" />
+	</File>
+	<File name="code\Chunk.h" open="1" top="0" tabpos="6">
+		<Cursor position="566" topLine="0" />
+	</File>
+	<File name="code\Launcher.cpp" open="0" top="0" tabpos="0">
+		<Cursor position="395" topLine="0" />
+	</File>
+	<File name="code\LevelManager.cpp" open="1" top="1" tabpos="2">
+		<Cursor position="324" topLine="0" />
+	</File>
+	<File name="code\LevelManager.h" open="1" top="0" tabpos="3">
+		<Cursor position="349" topLine="0" />
+	</File>
+	<File name="code\Main.cpp" open="1" top="0" tabpos="1">
+		<Cursor position="451" topLine="0" />
+	</File>
+	<File name="code\Main.h" open="0" top="0" tabpos="0">
+		<Cursor position="34" topLine="0" />
+	</File>
+</CodeBlocks_layout_file>

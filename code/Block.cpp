@@ -2,8 +2,9 @@
 
 #include <string>
 
-Block::Block(Ogre::SceneManager mSceneMgr, Ogre::Vector3 coord){
-    this.mSceneMgr = mSceneMgr;
+Block::Block(){}
+Block::Block(Ogre::SceneNode* chunkNode, Ogre::Vector3 coord){
+    this.mChunkNode = chunkNode;
     this.mCoord.x = coord.x;
     this.mCoord.y = coord.y;
     this.mCoord.z = coord.z;
@@ -12,7 +13,11 @@ Block::Block(Ogre::SceneManager mSceneMgr, Ogre::Vector3 coord){
 
 Block::~Block(){
     //dtor
+    for(int i = 0; i < 6; i++){
+        delete this.mSurroundingBlocks[i];
+    }
+    delete this.mChunkNode;
 }
-Block::addFace(std::string face){
+void Block::addFace(std::string face){
 
 }
