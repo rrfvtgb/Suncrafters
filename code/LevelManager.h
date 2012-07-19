@@ -2,11 +2,12 @@
 #define LEVELMANAGER_H
 
 #include "BaseApplication.h"
+#include "Chunk.h"
 
 class LevelManager
 {
     public:
-        LevelManager(Ogre::SceneManager* sceneMgr, int worldId);
+        LevelManager(Ogre::SceneManager* sceneMgr);
         virtual ~LevelManager();
 
         void createWorld();
