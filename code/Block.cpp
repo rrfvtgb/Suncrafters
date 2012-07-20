@@ -1,6 +1,8 @@
 #include "Block.h"
 
 #include <string>
+#include <iostream>
+#include <fstream>
 
 Block::Block(){this->mTexture = "";}
 Block::Block(Ogre::SceneNode* chunkNode, Ogre::Vector3 coord, Ogre::SceneManager* sceneMgr){
@@ -29,6 +31,7 @@ void Block::addFace(int face, Ogre::SceneNode* blockNode){
 
     Ogre::SceneNode* faceNode = blockNode->createChildSceneNode("faceNode-" + str);
     Ogre::Entity* faceEnt = mSceneMgr->createEntity("face-" + str, "blockMesh");
+    faceEnt->setMaterialName("cube_metal");
 
     faceNode->attachObject(faceEnt);
 
@@ -59,15 +62,22 @@ void Block::addFace(int face, Ogre::SceneNode* blockNode){
     faceNode->scale(0.8, 0.8, 0.8);
 }
 void Block::DisplayVisibleFaces(){
+    std::string const nomFichier("report.txt");
+    std::ofstream flux(nomFichier.c_str());
+
     std::string str = "blockNode-" + Ogre::StringConverter::toString(this->mCoord.x)
                     + ";" + Ogre::StringConverter::toString(this->mCoord.y)
                     + ";" + Ogre::StringConverter::toString(this->mCoord.z);
     Ogre::SceneNode* blockNode = this->mChunkNode->createChildSceneNode(str);
-
+    flux << str << std::endl;
     for(int i = 0; i < 6; i++){
+        flux << "At i = " << i << std::endl;
+        flux << "At i = " << i << " texture =" << this->mSurroundingBlocks[i]->mTexture << std::endl;
         if(isVisible(this->mSurroundingBlocks[i])){
+            flux << "At i = " << i << " texture =" << isVisible(this->mSurroundingBlocks[i]) << std::endl;
             addFace(i, blockNode);
         }
+        flux << "did not bug" << std::endl;
     }
     if(blockNode->numChildren() == 0){
         this->mChunkNode->removeAndDestroyChild(str);

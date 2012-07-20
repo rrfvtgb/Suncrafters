@@ -20,7 +20,6 @@ Chunk::Chunk(Ogre::SceneManager* sceneMgr, Ogre::Vector2 coord){
             }
         }
     }
-    this->addSurroundingBlocks();
 }
 //"Virtual" Chunk for borders
 Chunk::Chunk(){for(int x = 0; x < CHWIDTH; x++){for(int y = 0; y < CHHEIGHT; y++){for(int z = 0; z < CHWIDTH; z++){this->m_map[x][y][z] = new Block();}}}}
@@ -38,7 +37,7 @@ Chunk::~Chunk(){
 }
 void Chunk::addSurroundingBlocks(){
     Block* nonExistingBlock = new Block();//When y+1 & y-1 blocks don't exists
-    nonExistingBlock->mTexture = "";
+
     for(int x = 0; x < CHWIDTH; x++){
         for(int y = 0; y < CHHEIGHT; y++){
             for(int z = 0; z < CHWIDTH; z++){
@@ -67,6 +66,17 @@ void Chunk::addSurroundingBlocks(){
                 }else{
                     this->m_map[x][y][z]->mSurroundingBlocks[5] = this->mSurroundingChunks[1]->m_map[x][y][0];
                 }
+            }
+        }
+    }
+    this->displayChunk();
+}
+
+void Chunk::displayChunk(){
+    for(int x = 0; x < CHWIDTH; x++){
+        for(int y = 0; y < CHHEIGHT; y++){
+            for(int z = 0; z < CHWIDTH; z++){
+                this->m_map[x][y][z]->DisplayVisibleFaces();
             }
         }
     }

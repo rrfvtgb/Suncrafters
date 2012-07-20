@@ -14,7 +14,7 @@ void Main::createScene(void)
 {
     Ogre::ManualObject block("block");
 
-    block.begin("", Ogre::RenderOperation::OT_TRIANGLE_LIST);
+    block.begin("cube_metal", Ogre::RenderOperation::OT_TRIANGLE_LIST);
 		block.position(-50, 100, 0);
 		block.textureCoord(0, 0);
 
