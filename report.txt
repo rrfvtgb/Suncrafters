@@ -1,0 +1,12 @@
+blockNode-0;0;0
+At i = 0
+At i = 0 texture =
+At i = 0 texture =1
+did not bug
+At i = 1
+At i = 1 texture =cube
+did not bug
+At i = 2
+At i = 2 texture =cube
+did not bug
+At i = 3
