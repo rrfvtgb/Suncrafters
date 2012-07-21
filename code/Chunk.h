@@ -13,8 +13,6 @@ class Chunk
         Chunk();
         Chunk(Ogre::SceneManager* sceneMgr, Ogre::Vector2 coord);
         virtual ~Chunk();
-        void displayChunk();
-        void addSurroundingBlocks();
 
         Block* m_map[CHWIDTH][CHHEIGHT][CHWIDTH];
         Ogre::Vector2 mCoord;
@@ -24,9 +22,6 @@ class Chunk
         Ogre::SceneManager* mSceneMgr;
         Ogre::SceneNode* mChunkNode;
 
-        bool checkX(int x, int y, int z);
-        bool checkY(int x, int y, int z);
-        bool checkZ(int x, int y, int z);
 };
 
 #endif // CHUNK_H
