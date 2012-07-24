@@ -16,7 +16,6 @@ class Chunk
 
         Block* m_map[CHWIDTH][CHHEIGHT][CHWIDTH];
         Ogre::Vector2 mCoord;
-        Chunk* mSurroundingChunks[4];//x+1;y-1;x-1;y+1 //see schemes file
     protected:
     private:
         Ogre::SceneManager* mSceneMgr;
