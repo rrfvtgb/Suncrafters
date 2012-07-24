@@ -13,3 +13,6 @@
 
 #log files
 *.log
+
+#cpb
+*.cbTemp
