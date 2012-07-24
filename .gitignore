@@ -14,5 +14,6 @@
 #log files
 *.log
 
-#cpb
+#unusfull files
 *.cbTemp
+report.txt
