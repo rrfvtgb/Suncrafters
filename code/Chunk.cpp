@@ -5,7 +5,6 @@ Chunk::Chunk(Ogre::SceneManager* sceneMgr, Ogre::Vector2 coord){
     this->mCoord.x = coord.x;
     this->mCoord.y = coord.y;
 
-    Ogre::Vector3 blockCoord;
     std::string name = Ogre::StringConverter::toString(coord.x) + ";" + Ogre::StringConverter::toString(coord.y);
     this->mChunkNode = sceneMgr->getRootSceneNode()->createChildSceneNode("chunkNode-" + name);//Convert To get LandscapeNode
     this->mChunkNode->setPosition(coord.x, 0, coord.y);
@@ -13,9 +12,6 @@ Chunk::Chunk(Ogre::SceneManager* sceneMgr, Ogre::Vector2 coord){
     for(int x = 0; x < CHWIDTH; x++){
         for(int y = 0; y < CHHEIGHT; y++){
             for(int z = 0; z < CHWIDTH; z++){
-                blockCoord.x = this->mCoord.x + x;
-                blockCoord.y = y;
-                blockCoord.z = this->mCoord.y + z;
                 this->m_map[x][y][z] = new Block();
                 this->m_map[x][y][z]->mTexture = 1;
             }
@@ -28,7 +24,10 @@ Chunk::Chunk(){
         for(int y = 0; y < CHHEIGHT; y++){
             for(int z = 0; z < CHWIDTH; z++){
                 this->m_map[x][y][z] = new Block();
-                }}}}
+            }
+        }
+    }
+}
 
 Chunk::~Chunk(){
     for(int x = 0; x < CHWIDTH; x++){

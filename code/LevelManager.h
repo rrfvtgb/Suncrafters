@@ -4,6 +4,7 @@
 #include "BaseApplication.h"
 #include "Chunk.h"
 #include "Block.h"
+#include <fstream>
 
 class LevelManager
 {
@@ -18,6 +19,7 @@ class LevelManager
         Ogre::SceneManager* mSceneMgr;
         Chunk* m_Chunks[3][3];
         Block* mNonExistingBlock;
+        //std::ofstream flux;
 
         Block* getProperXBlock(int x1, int y1, int x, int y, int z);
         Block* getProperYBlock(int x1, int y1, int x, int y, int z);

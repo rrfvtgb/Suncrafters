@@ -5,7 +5,7 @@
 #include <fstream>
 #include <string>
 
-LevelManager::LevelManager(Ogre::SceneManager* sceneMgr){
+LevelManager::LevelManager(Ogre::SceneManager* sceneMgr) /*: flux(std::string("report.txt").c_str())*/{
     this->mSceneMgr = sceneMgr;
     this->mNonExistingBlock = new Block();
 }
@@ -48,7 +48,7 @@ void LevelManager::displayChunk(int x1, int y1){
     }
 }
 Block* LevelManager::getProperXBlock(int x1, int y1, int x, int y, int z){
-    if(x >= CHWIDTH-1){
+    if(x > CHWIDTH-1){
         if(x1 == 2){
             return this->mNonExistingBlock;
         }else{
@@ -65,20 +65,20 @@ Block* LevelManager::getProperXBlock(int x1, int y1, int x, int y, int z){
     }
 }
 Block* LevelManager::getProperYBlock(int x1, int y1, int x, int y, int z){
-    if(y >= CHHEIGHT || y <= 0){
+    if(y > CHHEIGHT-1 || y < 0){
         return this->mNonExistingBlock;
     }else{
         return this->m_Chunks[x1][y1]->m_map[x][y][z];
     }
 }
 Block* LevelManager::getProperZBlock(int x1, int y1, int x, int y, int z){
-    if(z >= CHWIDTH-1){
+    if(z > CHWIDTH-1){
         if(y1 == 2){
             return this->mNonExistingBlock;
         }else{
             return this->m_Chunks[x1][y1+1]->m_map[x][y][0];
         }
-    }else if(x <= 0){
+    }else if(z < 0){
         if(y1 == 0){
             return this->mNonExistingBlock;
         }else{
@@ -89,37 +89,35 @@ Block* LevelManager::getProperZBlock(int x1, int y1, int x, int y, int z){
     }
 }
 void LevelManager::isBlockVisibleAt(int x1, int y1, int x, int y, int z){
-    /*std::string const nomFichier("report.txt");
-    std::ofstream flux(nomFichier.c_str());
-    flux << "coord" << x << ";" << y << ";" << z << std::endl;
-    flux << "chunk" << x1 << ";" << y1 << std::endl;*/
 
     if(!this->m_Chunks[x1][y1]->m_map[x][y][z]->isVisible()){
-        if(this->getProperXBlock(x1, y1, x+1, y, z)->mTexture != 0){
+        if(this->getProperXBlock(x1, y1, x+1, y, z)->mTexture == 0){
             this->createFaceAt("x+1", x1, y1, x, y, z);
         }
-        if(this->getProperXBlock(x1, y1, x-1, y, z)->mTexture != 0){
+        if(this->getProperXBlock(x1, y1, x-1, y, z)->mTexture == 0){
             this->createFaceAt("x-1", x1, y1, x, y, z);
         }
-        if(this->getProperYBlock(x1, y1, x, y+1, z)->mTexture != 0){
+        if(this->getProperYBlock(x1, y1, x, y+1, z)->mTexture == 0){
             this->createFaceAt("y+1", x1, y1, x, y, z);
         }
-        if(this->getProperYBlock(x1, y1, x, y-1, z)->mTexture != 0){
+        if(this->getProperYBlock(x1, y1, x, y-1, z)->mTexture == 0){
             this->createFaceAt("y-1", x1, y1, x, y, z);
         }
-        if(this->getProperZBlock(x1, y1, x, y, z-1)->mTexture != 0){
+        if(this->getProperZBlock(x1, y1, x, y, z+1)->mTexture == 0){
             this->createFaceAt("z+1", x1, y1, x, y, z);
         }
-        if(this->getProperZBlock(x1, y1, x, y, z+1)->mTexture != 0){
+        if(this->getProperZBlock(x1, y1, x, y, z-1)->mTexture == 0){
             this->createFaceAt("z-1", x1, y1, x, y, z);
         }
     }
 }
 void LevelManager::createFaceAt(std::string face, int x1, int y1, int x, int y, int z){
 
-    x = (this->m_Chunks[x1][y1]->mCoord.x*CHWIDTH + x)*80;
+    //this->flux << x << ";" << y << ";" << z << "& face = " << face << std::endl;
+
+    x = (this->m_Chunks[x1][y1]->mCoord.x + x)*80;
     y = y * 80;
-    z = (this->m_Chunks[x1][y1]->mCoord.y*CHWIDTH + z)*80;
+    z = (this->m_Chunks[x1][y1]->mCoord.y + z)*80;
 
     std::string id = Ogre::StringConverter::toString(x) + ";" +
          Ogre::StringConverter::toString(y) + ";" +
@@ -127,6 +125,8 @@ void LevelManager::createFaceAt(std::string face, int x1, int y1, int x, int y, 
     /*if(mSceneMgr->hasSceneNode("faceNode;" + face + ";" +id)){
         return;
     }*/
+    //this->flux << id << "& face = " << face << std::endl << std::endl;
+
     Ogre::Entity *faceEnt = mSceneMgr->createEntity("face;" + face + ";" +id, "blockMesh");
 
     Ogre::SceneNode* cubeNode;
