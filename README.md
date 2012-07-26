@@ -7,9 +7,9 @@ GameplayBased on a mix of starcraft/warcraft & wow.
 #Roadmap
 
 ### Version alpha 0.1 <- processing
-* Terrain display <- processing (durium)
+* Terrain display <- processed (durium)
 * Some landscape generated <- processing (rrfvtgb)
-* SkyX implemented
+* SkyX implemented <-processing (durium)
 
 ### Version alpha 0.2
 * FirstPerson camera implemented
