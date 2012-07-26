@@ -2,7 +2,10 @@ Suncrafters
 ===========
 
 Game developed with ogre3d on a minecraftlike model (Terrain only)
+
 GameplayBased on a mix of starcraft/warcraft & wow.
+
+To compile you will need Ogre 1.7's folder next to suncrafter's folder 
 
 #Roadmap
 
