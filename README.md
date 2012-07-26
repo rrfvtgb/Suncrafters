@@ -15,6 +15,7 @@ GameplayBased on a mix of starcraft/warcraft & wow.
 * FirstPerson camera implemented
 * Right & left click implemented
 * Landscape upgrade
+* A round world
 * Map 10 000 * 10 000 blocks autoload
 
 ### Version alpha 0.3
