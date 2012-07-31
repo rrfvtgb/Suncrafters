@@ -37,7 +37,7 @@ void Main::createScene(void)
     lvl->createWorld();
 
 
-    // Create a Light and set its position
+    /*// Create a Light and set its position
     Ogre::Light* light = mSceneMgr->createLight("MainLight");
     light->setPosition(20.0f, 80.0f, 50.0f);
 
@@ -63,5 +63,5 @@ void Main::createScene(void)
     mSceneMgr->setWorldGeometry("Terrain.cfg");
 
     // Add a basic cloud layer
-    mSkyX->getCloudsManager()->add(SkyX::CloudLayer::Options(/* Default options */));
+    mSkyX->getCloudsManager()->add(SkyX::CloudLayer::Options());*/
 }
