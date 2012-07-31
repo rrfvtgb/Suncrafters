@@ -5,7 +5,7 @@
 #include <fstream>
 
 Block::Block(){
-    this->mTexture = 0;
+    this->mTexture = 5;
 }
 Block::~Block(){}
 
