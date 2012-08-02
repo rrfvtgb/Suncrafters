@@ -4915,7 +4915,7 @@
 	"Ogre.h"
 	<limits>
 
-1343919827 source:c:\users\durium\lib\ogre3d\suncrafters\code\main.cpp
+1343922156 source:c:\users\durium\lib\ogre3d\suncrafters\code\main.cpp
 	"Main.h"
 	"LevelManager.h"
 	<SkyX.h>
@@ -4936,17 +4936,19 @@
 	"BaseApplication.h"
 	"Block.h"
 
-1343919602 source:c:\users\durium\lib\ogre3d\suncrafters\code\levelmanager.cpp
+1343927169 source:c:\users\durium\lib\ogre3d\suncrafters\code\levelmanager.cpp
 	"LevelManager.h"
+	"tinyXml/tinyxml.h"
 	<vector>
 	<iostream>
 	<fstream>
 	<string>
 
-1343919472 c:\users\durium\lib\ogre3d\suncrafters\code\levelmanager.h
+1343936304 c:\users\durium\lib\ogre3d\suncrafters\code\levelmanager.h
 	"BaseApplication.h"
 	"Chunk.h"
 	"Block.h"
+	"tinyXml/tinyxml.h"
 	<fstream>
 
 1331234989 c:\users\durium\lib\ogre3d\suncrafters\code\skyx\include\skyx.h
@@ -5031,4 +5033,37 @@
 1331234614 c:\users\durium\lib\ogre3d\suncrafters\code\skyx\include\vclouds\ellipsoid.h
 	"Prerequisites.h"
 	"VClouds/DataManager.h"
+
+1338574287 c:\users\durium\lib\ogre3d\suncrafters\code\tinyxml\tinyxml.h
+	<ctype.h>
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	<assert.h>
+	<string>
+	<iostream>
+	<sstream>
+	"tinystr.h"
+
+1338574287 c:\users\durium\lib\ogre3d\suncrafters\code\tinyxml\tinystr.h
+	<assert.h>
+	<string.h>
+
+1338574287 source:c:\users\durium\lib\ogre3d\suncrafters\code\tinyxml\tinystr.cpp
+	"./tinystr.h"
+
+1338574287 source:c:\users\durium\lib\ogre3d\suncrafters\code\tinyxml\tinyxml.cpp
+	<ctype.h>
+	<sstream>
+	<iostream>
+	"./tinyxml.h"
+
+1338574287 source:c:\users\durium\lib\ogre3d\suncrafters\code\tinyxml\tinyxmlerror.cpp
+	"./tinyxml.h"
+
+1338574287 source:c:\users\durium\lib\ogre3d\suncrafters\code\tinyxml\tinyxmlparser.cpp
+	<ctype.h>
+	<stddef.h>
+	"./tinyxml.h"
+	<windows.h>
 
