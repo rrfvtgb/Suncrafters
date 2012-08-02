@@ -1,14 +1,11 @@
 #include "Block.h"
 
-#include <string>
-#include <iostream>
-#include <fstream>
 
 Block::Block(){
-    this->mTexture = 5;
+    this->mTexture = rand() % 5 + 1;
 }
 Block::~Block(){}
 
-bool Block::isVisible(){
-    return (this->mTexture == 0) ? true : false;
+bool Block::isNotAir(){
+    return (this->mTexture == 0) ? false : true;
 }

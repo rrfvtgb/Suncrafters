@@ -13,7 +13,6 @@ Chunk::Chunk(Ogre::SceneManager* sceneMgr, Ogre::Vector2 coord){
         for(int y = 0; y < CHHEIGHT; y++){
             for(int z = 0; z < CHWIDTH; z++){
                 this->m_map[x][y][z] = new Block();
-                this->m_map[x][y][z]->mTexture = 1;
             }
         }
     }

@@ -12,7 +12,7 @@ class Block
         int mTexture;
         Ogre::Vector3 mCoord;
 
-        bool isVisible();
+        bool isNotAir();
         //void addFace(int face, Ogre::SceneNode* blockNode);
     protected:
     private:

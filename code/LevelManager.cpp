@@ -8,6 +8,7 @@
 LevelManager::LevelManager(Ogre::SceneManager* sceneMgr) /*: flux(std::string("report.txt").c_str())*/{
     this->mSceneMgr = sceneMgr;
     this->mNonExistingBlock = new Block();
+    this->mNonExistingBlock->mTexture = 0;
 }
 
 LevelManager::~LevelManager(){
@@ -90,7 +91,7 @@ Block* LevelManager::getProperZBlock(int x1, int y1, int x, int y, int z){
 }
 void LevelManager::isBlockVisibleAt(int x1, int y1, int x, int y, int z){
 
-    if(!this->m_Chunks[x1][y1]->m_map[x][y][z]->isVisible()){
+    if(this->m_Chunks[x1][y1]->m_map[x][y][z]->isNotAir()){
         if(this->getProperXBlock(x1, y1, x+1, y, z)->mTexture == 0){
             this->createFaceAt("x+1", x1, y1, x, y, z);
         }
@@ -114,6 +115,8 @@ void LevelManager::isBlockVisibleAt(int x1, int y1, int x, int y, int z){
 void LevelManager::createFaceAt(std::string face, int x1, int y1, int x, int y, int z){
 
     //this->flux << x << ";" << y << ";" << z << "& face = " << face << std::endl;
+
+    int texBlock = this->m_Chunks[x1][y1]->m_map[x][y][z]->mTexture;//needed before x,y,z coord changes
 
     x = (this->m_Chunks[x1][y1]->mCoord.x + x)*80;
     y = y * 80;
@@ -162,4 +165,24 @@ void LevelManager::createFaceAt(std::string face, int x1, int y1, int x, int y, 
         faceNode->setPosition(x, y, z+80);
     }
     faceNode->scale(0.8, 0.8, 0.8);
+    faceEnt->setMaterialName(this->getCubeMaterialName(texBlock, face).c_str());
+    //faceEnt->setMaterialName("cube/grass/top");
+}
+std::string LevelManager::getCubeMaterialName(int texture, std::string face){
+    switch(texture){
+        case 1:
+            if(face.compare("y+1") == 0){
+                return std::string("cube/grass/top");
+            }else if(face.compare("y-1") == 0){
+                return std::string("cube/grass/bottom");
+            }else{
+                return std::string("cube/grass/side");
+            }
+        break;
+        case 2: return std::string("cube/metal"); break;
+        case 3: return std::string("cube/stone"); break;
+        case 4: return std::string("cube/coal"); break;
+        case 5: return std::string("cube/gold"); break;
+    }
+    return std::string("Default");
 }

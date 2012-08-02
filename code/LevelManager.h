@@ -27,6 +27,8 @@ class LevelManager
 
         void isBlockVisibleAt(int x1, int y1, int x, int y, int z);
         void createFaceAt(std::string face, int x1, int y1, int x, int y, int z);
+
+        std::string getCubeMaterialName(int texture, std::string face);
 };
 
 #endif // LEVELMANAGER_H

@@ -13,9 +13,10 @@ Main::~Main()
 }
 void Main::createScene(void)
 {
+    srand(time(NULL));
     Ogre::ManualObject block("block");
 
-    block.begin("cube_metal", Ogre::RenderOperation::OT_TRIANGLE_LIST);
+    block.begin("Default", Ogre::RenderOperation::OT_TRIANGLE_LIST);
 		block.position(-50, 100, 0);
 		block.textureCoord(0, 0);
 
@@ -36,6 +37,8 @@ void Main::createScene(void)
     LevelManager* lvl = new LevelManager(mSceneMgr);
     lvl->createWorld();
 
+    Ogre::Light* light = mSceneMgr->createLight("MainLight");
+    light->setPosition(20.0f, 80.0f, 50.0f);
 
     /*// Create a Light and set its position
     Ogre::Light* light = mSceneMgr->createLight("MainLight");
