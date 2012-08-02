@@ -1,11 +1,12 @@
 #include "LevelManager.h"
+#include "tinyXml/tinyxml.h"
 
 #include <vector>
 #include <iostream>
 #include <fstream>
 #include <string>
 
-LevelManager::LevelManager(Ogre::SceneManager* sceneMgr) /*: flux(std::string("report.txt").c_str())*/{
+LevelManager::LevelManager(Ogre::SceneManager* sceneMgr) : flux(std::string("report.txt").c_str()){
     this->mSceneMgr = sceneMgr;
     this->mNonExistingBlock = new Block();
     this->mNonExistingBlock->mTexture = 0;
@@ -169,20 +170,47 @@ void LevelManager::createFaceAt(std::string face, int x1, int y1, int x, int y, 
     //faceEnt->setMaterialName("cube/grass/top");
 }
 std::string LevelManager::getCubeMaterialName(int texture, std::string face){
-    switch(texture){
-        case 1:
-            if(face.compare("y+1") == 0){
-                return std::string("cube/grass/top");
-            }else if(face.compare("y-1") == 0){
-                return std::string("cube/grass/bottom");
-            }else{
-                return std::string("cube/grass/side");
-            }
-        break;
-        case 2: return std::string("cube/metal"); break;
-        case 3: return std::string("cube/stone"); break;
-        case 4: return std::string("cube/coal"); break;
-        case 5: return std::string("cube/gold"); break;
+    std::string cubeFace;
+    if(face.compare("y+1") == 0){
+        cubeFace = "top";
+    }else if(face.compare("y-1") == 0){
+        cubeFace = "bottom";
+    }else{
+        cubeFace = "side";
     }
+    TiXmlDocument* document = new TiXmlDocument("bin/assets/textures/textures.xml");
+    if(!document->LoadFile()){
+        this->flux << "error while loading" << std::endl;
+        this->flux << "error #" << document->ErrorId() << " : " << document->ErrorDesc() << std::endl;
+        return std::string("Default");
+    }
+    TiXmlHandle* hdl = new TiXmlHandle(document);
+    TiXmlElement* element = hdl->FirstChildElement().FirstChildElement().ToElement();
+    TiXmlElement* sides;
+
+    if(!element){
+		this->flux << "le noeud à atteindre n'existe pas" << std::endl;
+		return std::string("Default");
+    }
+
+	while (element){
+		if(Ogre::StringConverter::parseInt(element->Attribute("id")) == texture){
+            sides = element->FirstChildElement();
+            while(sides){
+                if(sides->Value() == cubeFace){
+                    return sides->GetText();
+                    break;
+                }
+                sides = sides->NextSiblingElement();
+            }
+            break;
+		}
+		element = element->NextSiblingElement(); // aller à l'élément suivant
+	}
+    delete sides;
+    delete element;
+
+
+
     return std::string("Default");
 }
