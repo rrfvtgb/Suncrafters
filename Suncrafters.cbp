@@ -40,10 +40,12 @@
 			<Add directory="..\Ogre\include\OGRE" />
 			<Add directory="..\Ogre\include\OIS" />
 			<Add directory="..\Ogre\boost_1_44" />
+			<Add directory="code\SkyX\Source" />
+			<Add directory="code\SkyX\Include" />
 		</Compiler>
 		<Linker>
-			<Add directory="..\Ogre\boost_1_44\lib" />
 			<Add directory="..\Ogre\bin\$(TARGET_NAME)" />
+			<Add directory="..\Ogre\bin" />
 		</Linker>
 		<Unit filename="code\BaseApplication.cpp" />
 		<Unit filename="code\BaseApplication.h" />
