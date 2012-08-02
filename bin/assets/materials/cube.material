@@ -1,0 +1,105 @@
+material Default{
+    technique{
+        pass{
+            ambient 1.0 1.0 1.0
+            diffuse 1.0 1.0 1.0       
+        }
+    }
+}
+material cube/grass/side{
+    technique{
+        pass{
+            ambient 1.0 1.0 1.0
+            diffuse 1.0 1.0 1.0       
+            texture_unit{
+                texture grass.png
+            }
+        }
+    }
+}
+material cube/grass/top{
+    technique{
+        pass{
+            ambient 1.0 1.0 1.0
+            diffuse 1.0 1.0 1.0       
+            texture_unit{
+                texture grass_1024.jpg
+            }
+        }
+    }
+}
+material cube/grass/bottom{
+    technique{
+        pass{
+            ambient 1.0 1.0 1.0
+            diffuse 1.0 1.0 1.0       
+            texture_unit{
+                texture grass_1024.jpg
+            }
+        }
+    }
+}
+material cube/coal
+{
+    technique
+    {
+        pass
+        {
+            ambient 1.0 1.0 1.0
+            diffuse 1.0 1.0 1.0
+            
+            texture_unit
+            {
+                texture coal.png
+            }
+        }
+    }
+}
+material cube/stone
+{
+    technique
+    {
+        pass
+        {
+            ambient 1.0 1.0 1.0
+            diffuse 1.0 1.0 1.0
+            
+            texture_unit
+            {
+                texture stone.png
+            }
+        }
+    }
+}
+material cube/metal
+{
+    technique
+    {
+        pass
+        {
+            ambient 1.0 1.0 1.0
+            diffuse 1.0 1.0 1.0
+            
+            texture_unit
+            {
+                texture metal.png
+            }
+        }
+    }
+}
+material cube/gold
+{
+    technique
+    {
+        pass
+        {
+            ambient 1.0 1.0 1.0
+            diffuse 1.0 1.0 1.0
+            
+            texture_unit
+            {
+                texture gold.png
+            }
+        }
+    }
+}
