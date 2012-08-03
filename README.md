@@ -9,21 +9,22 @@ To compile you will need Ogre 1.7's folder next to suncrafter's folder
 
 #Roadmap
 
-### Version alpha 0.1 <- processing
+### Version alpha 0.1
 * Terrain display <- processed (durium)
-* Some landscape generated <- processing (rrfvtgb)
-* SkyX implemented <-processing (durium)
+* Different textures (loaded from xml) <- processed (durium)
 
-### Version alpha 0.2
+### Version alpha 0.2 <- processing
+* Sky implemented (skyX)<- processing (durium) // having some problems compiling skyX
+* Some landscape generated <- processing (rrfvtgb)
 * FirstPerson camera implemented
 * Right & left click implemented
-* Landscape upgrade
-* A round world
-* Map 10 000 * 10 000 blocks autoload
+* Map 10 000 * 10 000 blocks (loaded from files)
 
 ### Version alpha 0.3
 * City implementation
 * Buildings & gui
+* A round world
+* Landscape upgrade
 
 ### Version alpha 0.4
 * Gui
