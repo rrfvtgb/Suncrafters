@@ -9,7 +9,7 @@ To compile you will need Ogre 1.7's folder next to suncrafter's folder
 
 #Roadmap
 
-### Version alpha 0.1
+### Version alpha 0.1 <- processed
 * Terrain display <- processed (durium)
 * Different textures (loaded from xml) <- processed (durium)
 
