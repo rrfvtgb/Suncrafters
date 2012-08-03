@@ -17,8 +17,22 @@ Chunk::Chunk(Ogre::SceneManager* sceneMgr, Ogre::Vector2 coord){
         }
     }
 }
+Chunk::Chunk(Ogre::SceneManager* sceneMgr, Ogre::Vector2 coord, std::string filename){
+    this->mSceneMgr = sceneMgr;
+    this->mCoord.x = coord.x;
+    this->mCoord.y = coord.y;
+
+    std::string name = Ogre::StringConverter::toString(coord.x) + ";" + Ogre::StringConverter::toString(coord.y);
+    this->mChunkNode = sceneMgr->getRootSceneNode()->createChildSceneNode("chunkNode-" + name);//Convert To get LandscapeNode
+    this->mChunkNode->setPosition(coord.x, 0, coord.y);
+
+    this->loadChunk(filename);
+}
+
 //"Virtual" Chunk for borders
 Chunk::Chunk(){
+    this->mCoord.x = -1;
+    this->mCoord.y = -1;
     for(int x = 0; x < CHWIDTH; x++){
         for(int y = 0; y < CHHEIGHT; y++){
             for(int z = 0; z < CHWIDTH; z++){
