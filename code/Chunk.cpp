@@ -40,3 +40,20 @@ Chunk::~Chunk(){
     delete this->mSceneMgr;
 }
 
+void Chunk::saveChunk(){
+    std::string name("bin/assets/chunks/chunk" + Ogre::StringConverter::parseInt(coord.x) + ";" + Ogre::StringConverter::parseInt(coord.y) + ".bin");
+    std::ofstream flux(name.c_str());
+    flux.close();
+
+    fstream myFile (name.c_str(), ios::in | ios::out | ios::binary);
+
+    for(int x = 0; x < CHWIDTH; x++){
+        for(int y = 0; y < CHHEIGHT; y++){
+            for(int z = 0; z < CHWIDTH; z++){
+                myFile.seekp (0);
+                myFile.write ((char*)&this->m_map[x][y][z], sizeof (Block));
+            }
+        }
+    }
+    myFile.close();
+}

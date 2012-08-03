@@ -13,6 +13,8 @@ class Chunk
         Chunk();
         Chunk(Ogre::SceneManager* sceneMgr, Ogre::Vector2 coord);
         virtual ~Chunk();
+        void saveChunk();
+        void loadChunk();
 
         Block* m_map[CHWIDTH][CHHEIGHT][CHWIDTH];
         Ogre::Vector2 mCoord;
