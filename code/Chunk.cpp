@@ -51,10 +51,29 @@ void Chunk::saveChunk(){
     for(int x = 0; x < CHWIDTH; x++){
         for(int y = 0; y < CHHEIGHT; y++){
             for(int z = 0; z < CHWIDTH; z++){
-                myFile.seekp (0);
-                myFile.write ((char*)&this->m_map[x][y][z], sizeof (Block));
+                myFile.seekp(sizeof (Block) * (x+y+z));
+                myFile.write((char*)&this->m_map[x][y][z], sizeof (Block));
             }
         }
     }
     myFile.close();
+}
+bool Chunk::loadChunk(std::string filename){
+    fstream file ("example.bin", ios::in|ios::binary|ios::ate);
+    if (file.is_open()){
+        for(int x = 0; x < CHWIDTH; x++){
+            for(int y = 0; y < CHHEIGHT; y++){
+                for(int z = 0; z < CHWIDTH; z++){
+                    myFile.seekg(sizeof (Block) * (x+y+z));
+                    myFile.read((char*)&this->m_map[x][y][z], sizeof (Block));
+                }
+            }
+        }
+    }else{
+        #if OGRE_PLATFORM == OGRE_PLATFORM_WIN32
+            MessageBox( NULL, std::string("Error While Loading Chunks. File is :" + filename), "An exception has occured!", MB_OK | MB_ICONERROR| MB_TASKMODAL);
+        #else
+            std::cerr << "An exception has occured: " << std::string("Error While Loading Chunks. File is :" + filename) << std::endl;
+        #endif
+    }
 }
