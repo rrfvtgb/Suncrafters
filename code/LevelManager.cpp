@@ -44,7 +44,7 @@ void LevelManager::displayChunk(int x1, int y1){
     for(int x = 0; x < CHWIDTH; x++){
         for(int y = 0; y < CHHEIGHT; y++){
             for(int z = 0; z < CHWIDTH; z++){
-                this->isBlockVisibleAt(x1, y1, x, y, z);
+                this->manageVisibleFacesAt(x1, y1, x, y, z);
             }
         }
     }
@@ -90,7 +90,7 @@ Block* LevelManager::getProperZBlock(int x1, int y1, int x, int y, int z){
         return this->m_Chunks[x1][y1]->m_map[x][y][z];
     }
 }
-void LevelManager::isBlockVisibleAt(int x1, int y1, int x, int y, int z){
+void LevelManager::manageVisibleFacesAt(int x1, int y1, int x, int y, int z){
 
     if(this->m_Chunks[x1][y1]->m_map[x][y][z]->isNotAir()){
         if(this->getProperXBlock(x1, y1, x+1, y, z)->mTexture == 0){
@@ -115,8 +115,6 @@ void LevelManager::isBlockVisibleAt(int x1, int y1, int x, int y, int z){
 }
 void LevelManager::createFaceAt(std::string face, int x1, int y1, int x, int y, int z){
 
-    //this->flux << x << ";" << y << ";" << z << "& face = " << face << std::endl;
-
     int texBlock = this->m_Chunks[x1][y1]->m_map[x][y][z]->mTexture;//needed before x,y,z coord changes
 
     x = (this->m_Chunks[x1][y1]->mCoord.x + x)*80;
@@ -129,7 +127,6 @@ void LevelManager::createFaceAt(std::string face, int x1, int y1, int x, int y, 
     /*if(mSceneMgr->hasSceneNode("faceNode;" + face + ";" +id)){
         return;
     }*/
-    //this->flux << id << "& face = " << face << std::endl << std::endl;
 
     Ogre::Entity *faceEnt = mSceneMgr->createEntity("face;" + face + ";" +id, "blockMesh");
 

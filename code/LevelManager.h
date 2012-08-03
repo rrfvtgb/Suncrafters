@@ -28,7 +28,7 @@ class LevelManager
         Block* getProperYBlock(int x1, int y1, int x, int y, int z);
         Block* getProperZBlock(int x1, int y1, int x, int y, int z);
 
-        void isBlockVisibleAt(int x1, int y1, int x, int y, int z);
+        void manageVisibleFacesAt(int x1, int y1, int x, int y, int z);
         void createFaceAt(std::string face, int x1, int y1, int x, int y, int z);
 
         std::string getCubeMaterialName(int texture, std::string face);

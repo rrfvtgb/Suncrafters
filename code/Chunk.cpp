@@ -42,7 +42,8 @@ Chunk::~Chunk(){
 
 void Chunk::saveChunk(){
     std::string name("bin/assets/chunks/chunk" + Ogre::StringConverter::parseInt(coord.x) + ";" + Ogre::StringConverter::parseInt(coord.y) + ".bin");
-    std::ofstream flux(name.c_str());
+
+    std::ofstream flux(name.c_str());//Create file if it doesn't exist
     flux.close();
 
     fstream myFile (name.c_str(), ios::in | ios::out | ios::binary);
