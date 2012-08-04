@@ -55,39 +55,42 @@ Chunk::~Chunk(){
 }
 
 void Chunk::saveChunk(){
-    std::string name("bin/assets/chunks/chunk" + Ogre::StringConverter::parseInt(coord.x) + ";" + Ogre::StringConverter::parseInt(coord.y) + ".bin");
+    std::string name("bin/assets/chunks/chunk;" + Ogre::StringConverter::toString(this->mCoord.x) + ";" + Ogre::StringConverter::toString(this->mCoord.y) + ".bin");
 
     std::ofstream flux(name.c_str());//Create file if it doesn't exist
     flux.close();
 
-    fstream myFile (name.c_str(), ios::in | ios::out | ios::binary);
+    std::fstream myFile (name.c_str(), std::ios::in | std::ios::out | std::ios::binary);
 
+    int i = 0;
     for(int x = 0; x < CHWIDTH; x++){
         for(int y = 0; y < CHHEIGHT; y++){
             for(int z = 0; z < CHWIDTH; z++){
-                myFile.seekp(sizeof (Block) * (x+y+z));
+                myFile.seekp(sizeof (Block) * (i));
                 myFile.write((char*)&this->m_map[x][y][z], sizeof (Block));
+                i++;
             }
         }
     }
     myFile.close();
 }
 bool Chunk::loadChunk(std::string filename){
-    fstream file ("example.bin", ios::in|ios::binary|ios::ate);
-    if (file.is_open()){
+    std::fstream myFile (filename.c_str(), std::ios::in | std::ios::out | std::ios::binary);
+
+    if (myFile.is_open()){
+        int i = 0;
         for(int x = 0; x < CHWIDTH; x++){
             for(int y = 0; y < CHHEIGHT; y++){
                 for(int z = 0; z < CHWIDTH; z++){
-                    myFile.seekg(sizeof (Block) * (x+y+z));
+                    myFile.seekg(sizeof (Block) * (i));
                     myFile.read((char*)&this->m_map[x][y][z], sizeof (Block));
+                    i++;
                 }
             }
         }
+        myFile.close();
+        return true;
     }else{
-        #if OGRE_PLATFORM == OGRE_PLATFORM_WIN32
-            MessageBox( NULL, std::string("Error While Loading Chunks. File is :" + filename), "An exception has occured!", MB_OK | MB_ICONERROR| MB_TASKMODAL);
-        #else
-            std::cerr << "An exception has occured: " << std::string("Error While Loading Chunks. File is :" + filename) << std::endl;
-        #endif
+        return false;
     }
 }
