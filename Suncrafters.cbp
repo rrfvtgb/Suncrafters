@@ -7,7 +7,7 @@
 		<Option compiler="gcc" />
 		<Build>
 			<Target title="Debug">
-				<Option output="bin\Debug\Suncrafters" prefix_auto="1" extension_auto="1" />
+				<Option output="Suncrafters" prefix_auto="1" extension_auto="1" />
 				<Option object_output="bin\Debug\" />
 				<Option type="1" />
 				<Option compiler="gcc" />
@@ -20,7 +20,7 @@
 				</Linker>
 			</Target>
 			<Target title="Release">
-				<Option output="bin\Release\Suncrafters" prefix_auto="1" extension_auto="1" />
+				<Option output="Suncrafters" prefix_auto="1" extension_auto="1" />
 				<Option object_output="bin\Release\" />
 				<Option type="1" />
 				<Option compiler="gcc" />
@@ -40,8 +40,6 @@
 			<Add directory="..\Ogre\include\OGRE" />
 			<Add directory="..\Ogre\include\OIS" />
 			<Add directory="..\Ogre\boost_1_44" />
-			<Add directory="code\SkyX\Source" />
-			<Add directory="code\SkyX\Include" />
 		</Compiler>
 		<Linker>
 			<Add directory="..\Ogre\bin\$(TARGET_NAME)" />
@@ -53,11 +51,23 @@
 		<Unit filename="code\Block.h" />
 		<Unit filename="code\Chunk.cpp" />
 		<Unit filename="code\Chunk.h" />
+		<Unit filename="code\InputListener.cpp" />
+		<Unit filename="code\InputListener.h" />
+		<Unit filename="code\KeyMgr.cpp" />
+		<Unit filename="code\KeyMgr.h" />
 		<Unit filename="code\Launcher.cpp" />
 		<Unit filename="code\LevelManager.cpp" />
 		<Unit filename="code\LevelManager.h" />
 		<Unit filename="code\Main.cpp" />
 		<Unit filename="code\Main.h" />
+		<Unit filename="code\PlayerMgr.cpp" />
+		<Unit filename="code\PlayerMgr.h" />
+		<Unit filename="code\tinyXml\tinystr.cpp" />
+		<Unit filename="code\tinyXml\tinystr.h" />
+		<Unit filename="code\tinyXml\tinyxml.cpp" />
+		<Unit filename="code\tinyXml\tinyxml.h" />
+		<Unit filename="code\tinyXml\tinyxmlerror.cpp" />
+		<Unit filename="code\tinyXml\tinyxmlparser.cpp" />
 		<Extensions>
 			<code_completion />
 			<debugger />

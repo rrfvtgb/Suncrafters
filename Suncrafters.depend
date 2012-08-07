@@ -1,10 +1,11 @@
 # depslib dependency file v1.0
-1342876241 source:c:\users\durium\lib\ogre3d\suncrafters\code\launcher.cpp
+1344072103 source:c:\users\durium\lib\ogre3d\suncrafters\code\launcher.cpp
 	"windows.h"
 	"Main.h"
 
-1343728841 c:\users\durium\lib\ogre3d\suncrafters\code\main.h
+1344275542 c:\users\durium\lib\ogre3d\suncrafters\code\main.h
 	"BaseApplication.h"
+	"PlayerMgr.h"
 
 1338574287 c:\users\durium\lib\ogre3d\suncrafters\code\baseapplication.h
 	<OgreCamera.h>
@@ -4915,28 +4916,28 @@
 	"Ogre.h"
 	<limits>
 
-1343922156 source:c:\users\durium\lib\ogre3d\suncrafters\code\main.cpp
+1344275542 source:c:\users\durium\lib\ogre3d\suncrafters\code\main.cpp
 	"Main.h"
 	"LevelManager.h"
-	<SkyX.h>
+	"InputListener.h"
 
 1342201993 source:c:\users\durium\lib\ogre3d\suncrafters\code\baseapplication.cpp
 	"./BaseApplication.h"
 
-1343919811 source:c:\users\durium\lib\ogre3d\suncrafters\code\block.cpp
+1344112132 source:c:\users\durium\lib\ogre3d\suncrafters\code\block.cpp
 	"Block.h"
 
-1343916842 c:\users\durium\lib\ogre3d\suncrafters\code\block.h
+1344112132 c:\users\durium\lib\ogre3d\suncrafters\code\block.h
 	"BaseApplication.h"
 
-1343919650 source:c:\users\durium\lib\ogre3d\suncrafters\code\chunk.cpp
+1344275834 source:c:\users\durium\lib\ogre3d\suncrafters\code\chunk.cpp
 	"Chunk.h"
 
-1343166999 c:\users\durium\lib\ogre3d\suncrafters\code\chunk.h
+1344275542 c:\users\durium\lib\ogre3d\suncrafters\code\chunk.h
 	"BaseApplication.h"
 	"Block.h"
 
-1343936369 source:c:\users\durium\lib\ogre3d\suncrafters\code\levelmanager.cpp
+1344275788 source:c:\users\durium\lib\ogre3d\suncrafters\code\levelmanager.cpp
 	"LevelManager.h"
 	"tinyXml/tinyxml.h"
 	<vector>
@@ -4944,7 +4945,7 @@
 	<fstream>
 	<string>
 
-1343936304 c:\users\durium\lib\ogre3d\suncrafters\code\levelmanager.h
+1344275542 c:\users\durium\lib\ogre3d\suncrafters\code\levelmanager.h
 	"BaseApplication.h"
 	"Chunk.h"
 	"Block.h"
@@ -5034,7 +5035,7 @@
 	"Prerequisites.h"
 	"VClouds/DataManager.h"
 
-1338574287 c:\users\durium\lib\ogre3d\suncrafters\code\tinyxml\tinyxml.h
+1344112132 c:\users\durium\lib\ogre3d\suncrafters\code\tinyxml\tinyxml.h
 	<ctype.h>
 	<stdio.h>
 	<stdlib.h>
@@ -5045,25 +5046,91 @@
 	<sstream>
 	"tinystr.h"
 
-1338574287 c:\users\durium\lib\ogre3d\suncrafters\code\tinyxml\tinystr.h
+1344112132 c:\users\durium\lib\ogre3d\suncrafters\code\tinyxml\tinystr.h
 	<assert.h>
 	<string.h>
 
-1338574287 source:c:\users\durium\lib\ogre3d\suncrafters\code\tinyxml\tinystr.cpp
+1344112132 source:c:\users\durium\lib\ogre3d\suncrafters\code\tinyxml\tinystr.cpp
 	"./tinystr.h"
 
-1338574287 source:c:\users\durium\lib\ogre3d\suncrafters\code\tinyxml\tinyxml.cpp
+1344112132 source:c:\users\durium\lib\ogre3d\suncrafters\code\tinyxml\tinyxml.cpp
 	<ctype.h>
 	<sstream>
 	<iostream>
 	"./tinyxml.h"
 
-1338574287 source:c:\users\durium\lib\ogre3d\suncrafters\code\tinyxml\tinyxmlerror.cpp
+1344112132 source:c:\users\durium\lib\ogre3d\suncrafters\code\tinyxml\tinyxmlerror.cpp
 	"./tinyxml.h"
 
-1338574287 source:c:\users\durium\lib\ogre3d\suncrafters\code\tinyxml\tinyxmlparser.cpp
+1344112132 source:c:\users\durium\lib\ogre3d\suncrafters\code\tinyxml\tinyxmlparser.cpp
 	<ctype.h>
 	<stddef.h>
 	"./tinyxml.h"
 	<windows.h>
+
+1344348502 source:c:\users\durium\lib\ogre3d\suncrafters\code\inputlistener.cpp
+	"InputListener.h"
+
+1344290226 c:\users\durium\lib\ogre3d\suncrafters\code\inputlistener.h
+	<ExampleFrameListener.h>
+	<OIS/OIS.h>
+	<fstream>
+	<vector>
+	"BaseApplication.h"
+	"PlayerMgr.h"
+	"KeyMgr.h"
+
+1289139304 c:\users\durium\lib\ogre3d\ogre\include\ogre\exampleframelistener.h
+	"Ogre.h"
+	"OgreStringConverter.h"
+	"OgreException.h"
+	<OIS/OIS.h>
+	"OgreRTShaderSystem.h"
+
+1289139224 c:\users\durium\lib\ogre3d\ogre\include\ois\ois.h
+	"OISPrereqs.h"
+	"OISObject.h"
+	"OISMouse.h"
+	"OISKeyboard.h"
+	"OISJoyStick.h"
+	"OISInputManager.h"
+	"OISFactoryCreator.h"
+	"OISException.h"
+	"OISEvents.h"
+	"OISEffect.h"
+	"OISInterface.h"
+	"OISForceFeedback.h"
+
+1289139224 c:\users\durium\lib\ogre3d\ogre\include\ois\oisjoystick.h
+	"OISObject.h"
+	"OISEvents.h"
+
+1289139224 c:\users\durium\lib\ogre3d\ogre\include\ois\oisfactorycreator.h
+	"OISPrereqs.h"
+
+1289139224 c:\users\durium\lib\ogre3d\ogre\include\ois\oisexception.h
+	"OISPrereqs.h"
+	<exception>
+
+1289139224 c:\users\durium\lib\ogre3d\ogre\include\ois\oiseffect.h
+	"OISPrereqs.h"
+
+1289139224 c:\users\durium\lib\ogre3d\ogre\include\ois\oisforcefeedback.h
+	"OISPrereqs.h"
+	"OISInterface.h"
+	"OISEffect.h"
+
+1344333756 c:\users\durium\lib\ogre3d\suncrafters\code\playermgr.h
+	"BaseApplication.h"
+
+1344348371 source:c:\users\durium\lib\ogre3d\suncrafters\code\playermgr.cpp
+	"PlayerMgr.h"
+
+1344334087 c:\users\durium\lib\ogre3d\suncrafters\code\keymgr.h
+	<OIS/OIS.h>
+	"BaseApplication.h"
+	"PlayerMgr.h"
+
+1344348448 source:c:\users\durium\lib\ogre3d\suncrafters\code\keymgr.cpp
+	"KeyMgr.h"
 
