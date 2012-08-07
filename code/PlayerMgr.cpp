@@ -1,6 +1,6 @@
 #include "PlayerMgr.h"
 
-PlayerMgr::PlayerMgr(Ogre::SceneManager* sceneMgr){
+PlayerMgr::PlayerMgr(Ogre::SceneManager* sceneMgr) : flux(std::string("report.txt").c_str()){
     this->mSceneMgr = sceneMgr;
 
     this->mCameraNode = sceneMgr->getRootSceneNode()->createChildSceneNode();
@@ -12,7 +12,6 @@ PlayerMgr::PlayerMgr(Ogre::SceneManager* sceneMgr){
 
     this->mWalking = false;
     this->mDirection = Ogre::Vector3::ZERO;
-    this->mDestination = this->mCameraNode->getPosition();
     this->mDistance = 0;
 }
 
@@ -31,16 +30,19 @@ void PlayerMgr::addPlayer(int x, int y, int z){
     this->setAnim("Idle");
 }
 
-void PlayerMgr::walkTo(Ogre::Vector3 direction){
+void PlayerMgr::walkTo(Ogre::Vector3 relativeCoord){
+    this->mLastrelativeCoord = relativeCoord;
+
+    this->mDestination += relativeCoord;
+    this->mDirection = this->mDestination - this->mCameraNode->getPosition();
+    this->mDistance = this->mDirection.normalise();
     this->mWalking = true;
-    this->mDirection += direction;
-    this->mDestination += direction;
-    this->mDistance += direction.normalise();
 }
 void PlayerMgr::endWalk(){
     this->mWalking = false;
+    this->setAnim("Idle");
     this->mDirection = Ogre::Vector3::ZERO;
-    this->mDestination = this->mPlayerNode->getPosition();
+    this->mDestination = this->mCameraNode->getPosition();
     this->mDistance = 0;
 }
 void PlayerMgr::setAnim(std::string anim){

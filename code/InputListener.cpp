@@ -24,13 +24,13 @@ bool InputListener::frameRenderingQueued(const Ogre::FrameEvent& evt){
         this->mPlayerList[i]->mTopAnim->addTime(evt.timeSinceLastEvent);
 
         if(this->mPlayerList[i]->mWalking){
-            this->mPlayerList[i]->mDistance -= 10.0f * evt.timeSinceLastFrame;
+            this->mPlayerList[i]->mDistance -= 50.0f * evt.timeSinceLastFrame;
             if(this->mPlayerList[i]->mDistance <= 0){
-                //this->mPlayerList[i]->endWalk();
-                this->mPlayerList[i]->setAnim("Idle");
+                this->mPlayerList[i]->mCameraNode->setPosition(this->mPlayerList[i]->mDestination);
+                this->mPlayerList[i]->walkTo(this->mPlayerList[i]->mLastrelativeCoord);
             }else{
                 this->mPlayerList[i]->setAnim("Run");
-                this->mPlayerList[i]->mCameraNode->translate(this->mPlayerList[i]->mDestination * 10.0f * evt.timeSinceLastFrame);
+                this->mPlayerList[i]->mCameraNode->translate(this->mPlayerList[i]->mDirection * 50.0f * evt.timeSinceLastFrame);
             }
 
         }
@@ -92,6 +92,8 @@ bool InputListener::keyReleased(const OIS::KeyEvent &e){
 void InputListener::setPlayer(PlayerMgr* player){
     this->mPlayerList.push_back(player);
     player->mCameraRollNode->attachObject(this->mCamera);
+    player->mCameraNode->setPosition(0, 0, 0);
+    player->mDestination = player->mCameraNode->getPosition();
     if(this->mPlayerList.size() == 1){
         this->mKeyManager->setPlayer(player);
     }
