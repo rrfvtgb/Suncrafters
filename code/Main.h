@@ -2,6 +2,7 @@
 #define MAIN_H
 
 #include "BaseApplication.h"
+#include "PlayerMgr.h"
 
 class Main : public BaseApplication
 {
@@ -10,7 +11,9 @@ class Main : public BaseApplication
         virtual ~Main();
     protected:
         virtual void createScene(void);
+        virtual void createFrameListener(void);
     private:
+        PlayerMgr* mPlayer;
 };
 
 #endif // MAIN_H
