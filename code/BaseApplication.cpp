@@ -112,7 +112,7 @@ void BaseApplication::createFrameListener(void)
     //Register as a Window listener
     Ogre::WindowEventUtilities::addWindowEventListener(mWindow, this);
 
-    mTrayMgr = new OgreBites::SdkTrayManager("InterfaceName", mWindow, mMouse, this);
+    /*mTrayMgr = new OgreBites::SdkTrayManager("InterfaceName", mWindow, mMouse, this);
     mTrayMgr->showFrameStats(OgreBites::TL_BOTTOMLEFT);
     mTrayMgr->showLogo(OgreBites::TL_BOTTOMRIGHT);
     mTrayMgr->hideCursor();
@@ -132,7 +132,7 @@ void BaseApplication::createFrameListener(void)
     mDetailsPanel = mTrayMgr->createParamsPanel(OgreBites::TL_NONE, "DetailsPanel", 200, items);
     mDetailsPanel->setParamValue(7, "Bilinear");
     mDetailsPanel->setParamValue(8, "Solid");
-    mDetailsPanel->hide();
+    mDetailsPanel->hide();*/
 
     mRoot->addFrameListener(this);
 }
@@ -247,29 +247,12 @@ bool BaseApplication::frameRenderingQueued(const Ogre::FrameEvent& evt)
     mKeyboard->capture();
     mMouse->capture();
 
-    mTrayMgr->frameRenderingQueued(evt);
-
-    if (!mTrayMgr->isDialogVisible())
-    {
-        mCameraMan->frameRenderingQueued(evt);   // if dialog isn't up, then update the camera
-        if (mDetailsPanel->isVisible())   // if details panel is visible, then update its contents
-        {
-            mDetailsPanel->setParamValue(0, Ogre::StringConverter::toString(mCamera->getDerivedPosition().x));
-            mDetailsPanel->setParamValue(1, Ogre::StringConverter::toString(mCamera->getDerivedPosition().y));
-            mDetailsPanel->setParamValue(2, Ogre::StringConverter::toString(mCamera->getDerivedPosition().z));
-            mDetailsPanel->setParamValue(3, Ogre::StringConverter::toString(mCamera->getDerivedOrientation().w));
-            mDetailsPanel->setParamValue(4, Ogre::StringConverter::toString(mCamera->getDerivedOrientation().x));
-            mDetailsPanel->setParamValue(5, Ogre::StringConverter::toString(mCamera->getDerivedOrientation().y));
-            mDetailsPanel->setParamValue(6, Ogre::StringConverter::toString(mCamera->getDerivedOrientation().z));
-        }
-    }
-
     return true;
 }
 //-------------------------------------------------------------------------------------
 bool BaseApplication::keyPressed( const OIS::KeyEvent &arg )
 {
-    if (mTrayMgr->isDialogVisible()) return true;   // don't process any more keys if dialog is up
+    //if (mTrayMgr->isDialogVisible()) return true;   // don't process any more keys if dialog is up
 
     if (arg.key == OIS::KC_F)   // toggle visibility of advanced frame stats
     {
@@ -360,36 +343,13 @@ bool BaseApplication::keyPressed( const OIS::KeyEvent &arg )
     mCameraMan->injectKeyDown(arg);
     return true;
 }
-bool BaseApplication::keyReleased( const OIS::KeyEvent &arg )
-{
-    mCameraMan->injectKeyUp(arg);
-    return true;
-}
+bool BaseApplication::keyReleased( const OIS::KeyEvent &arg ){return true;}
 
-bool BaseApplication::mouseMoved( const OIS::MouseEvent &arg )
-{
-    Ogre::Real pitch = Ogre::Real(arg.state.Y.rel) * -0.005f;
-    Ogre::Real yaw = Ogre::Real(arg.state.X.rel) * -0.005f;
-    mCamera->pitch(Ogre::Radian(pitch));
-    mCamera->yaw(Ogre::Radian(yaw));
-    if (mTrayMgr->injectMouseMove(arg)) return true;
-    mCameraMan->injectMouseMove(arg);
-    return true;
-}
+bool BaseApplication::mouseMoved( const OIS::MouseEvent &arg ){return true;}
 
-bool BaseApplication::mousePressed( const OIS::MouseEvent &arg, OIS::MouseButtonID id )
-{
-    if (mTrayMgr->injectMouseDown(arg, id)) return true;
-    mCameraMan->injectMouseDown(arg, id);
-    return true;
-}
+bool BaseApplication::mousePressed( const OIS::MouseEvent &arg, OIS::MouseButtonID id ){return true;}
 
-bool BaseApplication::mouseReleased( const OIS::MouseEvent &arg, OIS::MouseButtonID id )
-{
-    if (mTrayMgr->injectMouseUp(arg, id)) return true;
-    mCameraMan->injectMouseUp(arg, id);
-    return true;
-}
+bool BaseApplication::mouseReleased( const OIS::MouseEvent &arg, OIS::MouseButtonID id ){return true;}
 
 //Adjust mouse clipping area
 void BaseApplication::windowResized(Ogre::RenderWindow* rw)

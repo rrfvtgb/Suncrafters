@@ -81,7 +81,7 @@ bool InputListener::keyPressed(const OIS::KeyEvent &e){
     if(this->mKeyManager->keyPressed(e)){
         return true;
     }else{
-        this->mContinue = false;
+        this->mShutDown = false;
         return true;
     }
 }
