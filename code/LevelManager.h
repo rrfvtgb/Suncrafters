@@ -5,7 +5,10 @@
 #include "Chunk.h"
 #include "Block.h"
 #include "tinyXml/tinyxml.h"
+
 #include <fstream>
+// 10 000 / CHWIDTH
+#define MAPWIDTH  10000 / CHWIDTH
 
 class LevelManager
 {
@@ -28,7 +31,7 @@ class LevelManager
         Block* getProperYBlock(int x1, int y1, int x, int y, int z);
         Block* getProperZBlock(int x1, int y1, int x, int y, int z);
 
-        void isBlockVisibleAt(int x1, int y1, int x, int y, int z);
+        void manageVisibleFacesAt(int x1, int y1, int x, int y, int z);
         void createFaceAt(std::string face, int x1, int y1, int x, int y, int z);
 
         std::string getCubeMaterialName(int texture, std::string face);
