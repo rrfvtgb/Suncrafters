@@ -206,6 +206,8 @@ std::string LevelManager::getCubeMaterialName(int texture, std::string face){
 	}
     delete sides;
     delete element;
+    delete hdl;
+    delete document;
 
 
 

@@ -28,6 +28,7 @@ class InputListener : public ExampleFrameListener, OIS::KeyListener, OIS::MouseL
     private:
         Ogre::SceneManager *mSceneMgr;
         bool mShutDown;
+        float walkSpeed;
 
         std::vector <PlayerMgr *> mPlayerList;
         Ogre::Vector3* mMvt;

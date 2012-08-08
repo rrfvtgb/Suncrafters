@@ -13,6 +13,7 @@ PlayerMgr::PlayerMgr(Ogre::SceneManager* sceneMgr) : flux(std::string("report.tx
     this->mWalking = false;
     this->mDirection = Ogre::Vector3::ZERO;
     this->mDistance = 0;
+    this->mKeyPressed = 0;
 }
 
 void PlayerMgr::addPlayer(int x, int y, int z){
@@ -32,18 +33,25 @@ void PlayerMgr::addPlayer(int x, int y, int z){
 
 void PlayerMgr::walkTo(Ogre::Vector3 relativeCoord){
     this->mLastrelativeCoord = relativeCoord;
+    this->mKeyPressed++;
 
     this->mDestination += relativeCoord;
     this->mDirection = this->mDestination - this->mCameraNode->getPosition();
     this->mDistance = this->mDirection.normalise();
     this->mWalking = true;
 }
-void PlayerMgr::endWalk(){
-    this->mWalking = false;
-    this->setAnim("Idle");
-    this->mDirection = Ogre::Vector3::ZERO;
-    this->mDestination = this->mCameraNode->getPosition();
-    this->mDistance = 0;
+void PlayerMgr::endWalk(Ogre::Vector3 relativeCoord){
+    this->mKeyPressed--;
+
+    if(this->mKeyPressed <= 0){
+        this->mWalking = false;
+        this->setAnim("Idle");
+        this->mDirection = Ogre::Vector3::ZERO;
+        this->mDestination = this->mCameraNode->getPosition();
+        this->mDistance = 0;
+    }else{
+        this->walkTo(relativeCoord);
+    }
 }
 void PlayerMgr::setAnim(std::string anim){
     mBaseAnim = mEnt->getAnimationState(std::string(anim + "Base"));

@@ -11,7 +11,7 @@ class PlayerMgr
         virtual ~PlayerMgr();
         void addPlayer(int x, int y, int z);
         void walkTo(Ogre::Vector3 relativeCoord);
-        void endWalk();
+        void endWalk(Ogre::Vector3 relativeCoord);
 
         void setAnim(std::string anim);
 
@@ -30,6 +30,7 @@ class PlayerMgr
         Ogre::Vector3 mDestination;
         Ogre::Real mDistance;
         Ogre::Vector3 mLastrelativeCoord; //While isn't released when mDistance hits 0 use walkTo
+        int mKeyPressed;
     protected:
     private:
         Ogre::SceneManager* mSceneMgr;
