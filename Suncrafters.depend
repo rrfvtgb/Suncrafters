@@ -4945,12 +4945,13 @@
 	<fstream>
 	<string>
 
-1344275542 c:\users\durium\lib\ogre3d\suncrafters\code\levelmanager.h
+1344462936 c:\users\durium\lib\ogre3d\suncrafters\code\levelmanager.h
 	"BaseApplication.h"
 	"Chunk.h"
 	"Block.h"
 	"tinyXml/tinyxml.h"
 	<fstream>
+	<string>
 
 1331234989 c:\users\durium\lib\ogre3d\suncrafters\code\skyx\include\skyx.h
 	"Prerequisites.h"
@@ -5132,7 +5133,19 @@
 	"PlayerMgr.h"
 	<map>
 
-1344460277 source:c:\users\durium\lib\ogre3d\suncrafters\code\keymgr.cpp
+1344464558 source:c:\users\durium\lib\ogre3d\suncrafters\code\keymgr.cpp
 	"KeyMgr.h"
 	"tinyXml/tinyxml.h"
+	"PathMgr.h"
+
+1344465426 source:c:\users\durium\lib\ogre3d\suncrafters\code\pathmgr.cpp
+	"PathMgr.h"
+	<fstream>
+	<stdlib.h>
+	<direct.h>
+	<sys/stat.h>
+	<sys/types.h>
+
+1344463829 c:\users\durium\lib\ogre3d\suncrafters\code\pathmgr.h
+	<string>
 

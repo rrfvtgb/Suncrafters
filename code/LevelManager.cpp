@@ -175,7 +175,7 @@ std::string LevelManager::getCubeMaterialName(int texture, std::string face){
     }else{
         cubeFace = "side";
     }
-    TiXmlDocument* document = new TiXmlDocument("bin/assets/textures/textures.xml");
+    TiXmlDocument* document = new TiXmlDocument(std::string(PathMgr::getDataStorageFolder() + "textures/textures.xml").c_str());
     if(!document->LoadFile()){
         this->flux << "error while loading" << std::endl;
         this->flux << "error #" << document->ErrorId() << " : " << document->ErrorDesc() << std::endl;
@@ -186,7 +186,7 @@ std::string LevelManager::getCubeMaterialName(int texture, std::string face){
     TiXmlElement* sides;
 
     if(!element){
-		this->flux << "le noeud à atteindre n'existe pas" << std::endl;
+		this->flux << "No root node or root node haven't got any child nodes" << std::endl;
 		return std::string("Default");
     }
 

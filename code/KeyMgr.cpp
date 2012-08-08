@@ -1,10 +1,11 @@
 #include "KeyMgr.h"
 #include "tinyXml/tinyxml.h"
+#include "PathMgr.h"
 
 KeyMgr::KeyMgr() : flux(std::string("report.txt").c_str()){
     mDirection = Ogre::Vector3::ZERO;
 
-    this->mPathTokeyFile = "bin/assets/config/keys.xml";
+    this->mPathTokeyFile = PathMgr::getDataStorageFolder() + "/config/keys.xml";
     this->setKeyMap();
 }
 
@@ -51,6 +52,7 @@ bool KeyMgr::keyReleased(const OIS::KeyEvent &e){
     return true;
 }
 void KeyMgr::setKeyMap(){
+    flux << PathMgr::getDataStorageFolder() << std::endl;
     TiXmlDocument* document = new TiXmlDocument(this->mPathTokeyFile.c_str());
     if(!document->LoadFile()){
         this->flux << "error while loading" << std::endl;

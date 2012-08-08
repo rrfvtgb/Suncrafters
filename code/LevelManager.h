@@ -7,6 +7,7 @@
 #include "tinyXml/tinyxml.h"
 
 #include <fstream>
+#include <string>
 // 10 000 / CHWIDTH
 #define MAPWIDTH  10000 / CHWIDTH
 

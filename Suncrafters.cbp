@@ -60,6 +60,8 @@
 		<Unit filename="code\LevelManager.h" />
 		<Unit filename="code\Main.cpp" />
 		<Unit filename="code\Main.h" />
+		<Unit filename="code\PathMgr.cpp" />
+		<Unit filename="code\PathMgr.h" />
 		<Unit filename="code\PlayerMgr.cpp" />
 		<Unit filename="code\PlayerMgr.h" />
 		<Unit filename="code\tinyXml\tinystr.cpp" />
