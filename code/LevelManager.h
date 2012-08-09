@@ -4,7 +4,7 @@
 #include "BaseApplication.h"
 #include "Chunk.h"
 #include "Block.h"
-#include "tinyXml/tinyxml.h"
+#include "tinyXml/XmlMgr.h"
 
 #include <fstream>
 #include <string>
@@ -26,7 +26,7 @@ class LevelManager
         Block* mNonExistingBlock;
 
         std::ofstream flux;
-        TiXmlHandle* mHdl;
+        XmlMgr* mXmlManager;
 
         Block* getProperXBlock(int x1, int y1, int x, int y, int z);
         Block* getProperYBlock(int x1, int y1, int x, int y, int z);

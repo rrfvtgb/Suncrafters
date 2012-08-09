@@ -1,30 +1,19 @@
 #include "LevelManager.h"
-#include "tinyXml/tinyxml.h"
 #include "PathMgr.h"
 
 #include <vector>
 #include <iostream>
-#include <fstream>
-#include <string>
 
 LevelManager::LevelManager(Ogre::SceneManager* sceneMgr) : flux(std::string("report.txt").c_str()){
     this->mSceneMgr = sceneMgr;
     this->mNonExistingBlock = new Block();
     this->mNonExistingBlock->mTexture = 0;
-}
 
-LevelManager::~LevelManager(){
-    for(int x = 0;x<3;x++){
-        for(int y = 0; y < 3; y++){
-            delete m_Chunks[x][y];
-        }
-    }
-    delete this->mSceneMgr;
-    delete this->mNonExistingBlock;
+    mXmlManager = new XmlMgr();
+    mXmlManager->loadFile(std::string(PathMgr::getDataStorageFolder() + "textures/textures.xml"));
 }
 
 void LevelManager::createWorld(){
-    Ogre::SceneNode* landscape = mSceneMgr->getRootSceneNode()->createChildSceneNode("landscape");
     Ogre::Vector2 chunkCoord;
 
     for(int x = 0; x < 3; x++){//instantiation of chunks
@@ -176,15 +165,9 @@ std::string LevelManager::getCubeMaterialName(int texture, std::string face){
     }else{
         cubeFace = "side";
     }
-    TiXmlDocument* document = new TiXmlDocument(std::string(PathMgr::getDataStorageFolder() + "textures/textures.xml").c_str());
-    if(!document->LoadFile()){
-        this->flux << "error while loading" << std::endl;
-        this->flux << "error #" << document->ErrorId() << " : " << document->ErrorDesc() << std::endl;
-        return std::string("Default");
-    }
-    TiXmlHandle* hdl = new TiXmlHandle(document);
-    TiXmlElement* element = hdl->FirstChildElement().FirstChildElement().ToElement();
-    TiXmlElement* sides;
+
+    TiXmlElement* element = mXmlManager->getDocumentFirstChildElement();
+    TiXmlElement* sides(0);
 
     if(!element){
 		this->flux << "No root node or root node haven't got any child nodes" << std::endl;
@@ -205,12 +188,17 @@ std::string LevelManager::getCubeMaterialName(int texture, std::string face){
 		}
 		element = element->NextSiblingElement(); // aller à l'élément suivant
 	}
-    delete sides;
-    delete element;
-    delete hdl;
-    delete document;
-
-
+    delete sides; delete element;
 
     return std::string("Default");
+}
+
+LevelManager::~LevelManager(){
+    for(int x = 0;x<3;x++){
+        for(int y = 0; y < 3; y++){
+            delete m_Chunks[x][y];
+        }
+    }
+    delete this->mSceneMgr;
+    delete this->mNonExistingBlock;
 }
