@@ -7,16 +7,18 @@
 #include "PlayerMgr.h"
 
 #include <map>
+#include <fstream>
 
 class KeyMgr
 {
     public:
         KeyMgr();
         virtual ~KeyMgr();
+
         bool keyPressed(const OIS::KeyEvent &e);
         bool keyReleased(const OIS::KeyEvent &e);
-        void setKeyMap();
 
+        void setKeyMap(std::string pathToKeyFile);
         void setPlayer(PlayerMgr* player){this->mPlayer = player;}
 
     protected:
@@ -24,9 +26,8 @@ class KeyMgr
         PlayerMgr* mPlayer;
         Ogre::Vector3 mDirection;
 
-        std::ofstream flux;
-        std::string mPathTokeyFile;
         std::map <std::string, int> mKeyMap;
+        std::ofstream flux;
 };
 
 #endif // KEYMGR_H
