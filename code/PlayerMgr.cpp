@@ -29,19 +29,19 @@ void PlayerMgr::addPlayer(int x, int y, int z){
 
 void PlayerMgr::walkTo(Ogre::Vector3 relativeCoord){
     this->mLastrelativeCoord = relativeCoord;
-
-    this->mDestination += relativeCoord;
-    this->mDirection = this->mDestination - this->mPlayerNode->getPosition();
-    this->mDistance = this->mDirection.normalise();
+    this->setAnim("Run");
+    this->mDirection = relativeCoord;
+    this->mDirection.normalise();
     this->mWalking = true;
 }
 void PlayerMgr::endWalk(Ogre::Vector3 relativeCoord){
-
-    this->mWalking = false;
-    this->setAnim("Idle");
-    this->mDirection = Ogre::Vector3::ZERO;
-    this->mDestination = this->mPlayerNode->getPosition();
-    this->mDistance = 0;
+    if(this->mKeyPressed == 0){
+        this->mWalking = false;
+        this->setAnim("Idle");
+        this->mDirection = Ogre::Vector3::ZERO;
+    }else{
+        this->walkTo(relativeCoord);
+    }
 }
 void PlayerMgr::setAnim(std::string anim){
     mBaseAnim = mEnt->getAnimationState(std::string(anim + "Base"));

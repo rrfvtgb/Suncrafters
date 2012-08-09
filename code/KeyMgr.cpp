@@ -16,39 +16,45 @@ bool KeyMgr::keyPressed(const OIS::KeyEvent &e){
         break;
         case OIS::KC_PGUP:
             this->mDirection.y += 50;
+            this->mPlayer->mKeyPressed++;
             this->mPlayer->walkTo(this->mDirection);
         break;
         case OIS::KC_PGDOWN:
             this->mDirection.y -= 50;
+            this->mPlayer->mKeyPressed++;
             this->mPlayer->walkTo(this->mDirection);
         break;
     }
     if(e.key ==  this->mKeyMap["front"]){
         this->mDirection.z += 50;
+        this->mPlayer->mKeyPressed++;
         this->mPlayer->walkTo(this->mDirection);
     }
     if(e.key ==  this->mKeyMap["back"]){
         this->mDirection.z -= 50;
+        this->mPlayer->mKeyPressed++;
         this->mPlayer->walkTo(this->mDirection);
     }
     if(e.key ==  this->mKeyMap["right"]){
         this->mDirection.x += 50;
+        this->mPlayer->mKeyPressed++;
         this->mPlayer->walkTo(this->mDirection);
     }
     if(e.key ==  this->mKeyMap["left"]){
         this->mDirection.x -= 50;
+        this->mPlayer->mKeyPressed++;
         this->mPlayer->walkTo(this->mDirection);
     }
 }
 bool KeyMgr::keyReleased(const OIS::KeyEvent &e){
     switch(e.key){
-        case OIS::KC_PGUP:   this->mDirection.y -= 50; this->mPlayer->endWalk(this->mDirection); break;
-        case OIS::KC_PGDOWN: this->mDirection.y += 50; this->mPlayer->endWalk(this->mDirection); break;
+        case OIS::KC_PGUP:   this->mDirection.y -= 50; this->mPlayer->mKeyPressed--; this->mPlayer->endWalk(this->mDirection); break;
+        case OIS::KC_PGDOWN: this->mDirection.y += 50; this->mPlayer->mKeyPressed--; this->mPlayer->endWalk(this->mDirection); break;
     }
-    if(e.key ==  this->mKeyMap["front"]){ this->mDirection.z -= 50; this->mPlayer->endWalk(this->mDirection);}
-    if(e.key ==  this->mKeyMap["back"]){  this->mDirection.z += 50; this->mPlayer->endWalk(this->mDirection);}
-    if(e.key ==  this->mKeyMap["right"]){ this->mDirection.x -= 50; this->mPlayer->endWalk(this->mDirection);}
-    if(e.key ==  this->mKeyMap["left"]){  this->mDirection.x += 50; this->mPlayer->endWalk(this->mDirection);}
+    if(e.key ==  this->mKeyMap["front"]){ this->mDirection.z -= 50; this->mPlayer->mKeyPressed--; this->mPlayer->endWalk(this->mDirection);}
+    if(e.key ==  this->mKeyMap["back"]){  this->mDirection.z += 50; this->mPlayer->mKeyPressed--; this->mPlayer->endWalk(this->mDirection);}
+    if(e.key ==  this->mKeyMap["right"]){ this->mDirection.x -= 50; this->mPlayer->mKeyPressed--; this->mPlayer->endWalk(this->mDirection);}
+    if(e.key ==  this->mKeyMap["left"]){  this->mDirection.x += 50; this->mPlayer->mKeyPressed--; this->mPlayer->endWalk(this->mDirection);}
     return true;
 }
 void KeyMgr::setKeyMap(){

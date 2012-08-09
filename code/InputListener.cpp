@@ -24,15 +24,7 @@ bool InputListener::frameRenderingQueued(const Ogre::FrameEvent& evt){
         this->mPlayerList[i]->mTopAnim->addTime(evt.timeSinceLastEvent);
 
         if(this->mPlayerList[i]->mWalking){
-            //this->mPlayerList[i]->mDistance -= this->walkSpeed * evt.timeSinceLastFrame;
-            flux << "pos : " <<this->mPlayerList[i]->mPlayerNode->getPosition() << std::endl;
-            if(this->mPlayerList[i]->mDistance <= 0){
-                this->mPlayerList[i]->walkTo(this->mPlayerList[i]->mLastrelativeCoord);
-            }else{
-                this->mPlayerList[i]->setAnim("Run");
-                this->mPlayerList[i]->mPlayerNode->translate(this->mPlayerList[i]->mDirection * this->walkSpeed * evt.timeSinceLastFrame, Ogre::SceneNode::TS_LOCAL);
-            }
-
+            this->mPlayerList[i]->mPlayerNode->translate(this->mPlayerList[i]->mDirection * this->walkSpeed * evt.timeSinceLastFrame, Ogre::SceneNode::TS_LOCAL);
         }
     }
 
