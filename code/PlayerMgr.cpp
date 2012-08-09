@@ -1,4 +1,5 @@
 #include "PlayerMgr.h"
+int PlayerMgr::playerNumber = 0;
 
 PlayerMgr::PlayerMgr(Ogre::SceneManager* sceneMgr) : flux(std::string("report.txt").c_str()){
     this->mSceneMgr = sceneMgr;
@@ -11,7 +12,7 @@ PlayerMgr::PlayerMgr(Ogre::SceneManager* sceneMgr) : flux(std::string("report.tx
 }
 
 void PlayerMgr::createPlayer(Ogre::Vector3 playerPosition){
-    this->mPlayerNode = sceneMgr->getRootSceneNode()
+    this->mPlayerNode = mSceneMgr->getRootSceneNode()
         ->createChildSceneNode(std::string("playerNode-" + Ogre::StringConverter::toString(PlayerMgr::playerNumber)));
 
     mEnt  = mSceneMgr->createEntity(std::string("player-" + Ogre::StringConverter::toString(PlayerMgr::playerNumber)), "Sinbad.mesh");
@@ -21,7 +22,7 @@ void PlayerMgr::createPlayer(Ogre::Vector3 playerPosition){
     this->mPlayerNode->setPosition(playerPosition);
 
     //ent->getSkeleton()->setBlendMode(ANIMBLEND_CUMULATIVE); //cant seem to find ANIMBLEND_CUMULATIVE
-    this->setAnim("Idle");
+    this->setPlayerAnimTo("Idle");
 }
 
 void PlayerMgr::initializeCameraNodes(void){
@@ -31,7 +32,7 @@ void PlayerMgr::initializeCameraNodes(void){
 }
 
 void PlayerMgr::walkTo(Ogre::Vector3 direction){
-    this->setAnim("Run");
+    this->setPlayerAnimTo("Run");
 
     this->mDirection = direction;
     this->mDirection.normalise();
@@ -43,7 +44,7 @@ void PlayerMgr::endWalk(Ogre::Vector3 direction){
         this->mWalking = false;
         this->mDirection = Ogre::Vector3::ZERO;
 
-        this->setAnim("Idle");
+        this->setPlayerAnimTo("Idle");
     }else{
         this->walkTo(direction);
     }
