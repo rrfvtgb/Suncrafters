@@ -36,12 +36,12 @@ bool KeyMgr::keyPressed(const OIS::KeyEvent &e){
         this->mPlayer->walkTo(this->mDirection);
     }
     if(e.key ==  this->mKeyMap["right"]){
-        this->mDirection.x += 50;
+        this->mDirection.x -= 50;//Since Player isn't facing the camera directions are inversed
         this->mPlayer->mKeyPressed++;
         this->mPlayer->walkTo(this->mDirection);
     }
     if(e.key ==  this->mKeyMap["left"]){
-        this->mDirection.x -= 50;
+        this->mDirection.x += 50;//Since Player isn't facing the camera directions are inversed
         this->mPlayer->mKeyPressed++;
         this->mPlayer->walkTo(this->mDirection);
     }
@@ -53,8 +53,8 @@ bool KeyMgr::keyReleased(const OIS::KeyEvent &e){
     }
     if(e.key ==  this->mKeyMap["front"]){ this->mDirection.z -= 50; this->mPlayer->mKeyPressed--; this->mPlayer->endWalk(this->mDirection);}
     if(e.key ==  this->mKeyMap["back"]){  this->mDirection.z += 50; this->mPlayer->mKeyPressed--; this->mPlayer->endWalk(this->mDirection);}
-    if(e.key ==  this->mKeyMap["right"]){ this->mDirection.x -= 50; this->mPlayer->mKeyPressed--; this->mPlayer->endWalk(this->mDirection);}
-    if(e.key ==  this->mKeyMap["left"]){  this->mDirection.x += 50; this->mPlayer->mKeyPressed--; this->mPlayer->endWalk(this->mDirection);}
+    if(e.key ==  this->mKeyMap["right"]){ this->mDirection.x += 50; this->mPlayer->mKeyPressed--; this->mPlayer->endWalk(this->mDirection);}
+    if(e.key ==  this->mKeyMap["left"]){  this->mDirection.x -= 50; this->mPlayer->mKeyPressed--; this->mPlayer->endWalk(this->mDirection);}
     return true;
 }
 void KeyMgr::setKeyMap(){

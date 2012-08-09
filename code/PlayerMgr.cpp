@@ -17,10 +17,11 @@ PlayerMgr::PlayerMgr(Ogre::SceneManager* sceneMgr) : flux(std::string("report.tx
 void PlayerMgr::addPlayer(int x, int y, int z){
 
     mEnt  = mSceneMgr->createEntity("Sinbad", "Sinbad.mesh");
-    mPlayerNode->attachObject(mEnt);
+    this->mPlayerNode->attachObject(mEnt);
 
-    mPlayerNode->scale(17, 17, 17);
-    mPlayerNode->setPosition(x, y, z);
+    this->mPlayerNode->scale(17, 17, 17);
+    this->mPlayerNode->setPosition(x, y, z);
+    this->mCameraRollNode->yaw(Ogre::Degree(180));
 
     //ent->getSkeleton()->setBlendMode(ANIMBLEND_CUMULATIVE);
 
