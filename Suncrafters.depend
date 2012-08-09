@@ -4916,7 +4916,7 @@
 	"Ogre.h"
 	<limits>
 
-1344275542 source:c:\users\durium\lib\ogre3d\suncrafters\code\main.cpp
+1344527144 source:c:\users\durium\lib\ogre3d\suncrafters\code\main.cpp
 	"Main.h"
 	"LevelManager.h"
 	"InputListener.h"
@@ -4937,20 +4937,18 @@
 	"BaseApplication.h"
 	"Block.h"
 
-1344513325 source:c:\users\durium\lib\ogre3d\suncrafters\code\levelmanager.cpp
+1344532205 source:c:\users\durium\lib\ogre3d\suncrafters\code\levelmanager.cpp
 	"LevelManager.h"
 	"tinyXml/tinyxml.h"
 	"PathMgr.h"
 	<vector>
 	<iostream>
-	<fstream>
-	<string>
 
-1344465780 c:\users\durium\lib\ogre3d\suncrafters\code\levelmanager.h
+1344532098 c:\users\durium\lib\ogre3d\suncrafters\code\levelmanager.h
 	"BaseApplication.h"
 	"Chunk.h"
 	"Block.h"
-	"tinyXml/tinyxml.h"
+	"tinyXml/XmlMgr.h"
 	<fstream>
 	<string>
 
@@ -5070,10 +5068,10 @@
 	"./tinyxml.h"
 	<windows.h>
 
-1344523558 source:c:\users\durium\lib\ogre3d\suncrafters\code\inputlistener.cpp
+1344528806 source:c:\users\durium\lib\ogre3d\suncrafters\code\inputlistener.cpp
 	"InputListener.h"
 
-1344416791 c:\users\durium\lib\ogre3d\suncrafters\code\inputlistener.h
+1344528829 c:\users\durium\lib\ogre3d\suncrafters\code\inputlistener.h
 	<ExampleFrameListener.h>
 	<OIS/OIS.h>
 	<fstream>
@@ -5122,19 +5120,20 @@
 	"OISInterface.h"
 	"OISEffect.h"
 
-1344445743 c:\users\durium\lib\ogre3d\suncrafters\code\playermgr.h
+1344528428 c:\users\durium\lib\ogre3d\suncrafters\code\playermgr.h
 	"BaseApplication.h"
 
-1344523575 source:c:\users\durium\lib\ogre3d\suncrafters\code\playermgr.cpp
+1344528435 source:c:\users\durium\lib\ogre3d\suncrafters\code\playermgr.cpp
 	"PlayerMgr.h"
 
-1344459271 c:\users\durium\lib\ogre3d\suncrafters\code\keymgr.h
+1344531112 c:\users\durium\lib\ogre3d\suncrafters\code\keymgr.h
 	<OIS/OIS.h>
 	"BaseApplication.h"
 	"PlayerMgr.h"
 	<map>
+	<fstream>
 
-1344522992 source:c:\users\durium\lib\ogre3d\suncrafters\code\keymgr.cpp
+1344531124 source:c:\users\durium\lib\ogre3d\suncrafters\code\keymgr.cpp
 	"KeyMgr.h"
 	"tinyXml/tinyxml.h"
 	"PathMgr.h"
@@ -5149,4 +5148,12 @@
 
 1344465780 c:\users\durium\lib\ogre3d\suncrafters\code\pathmgr.h
 	<string>
+
+1344532155 c:\users\durium\lib\ogre3d\suncrafters\code\tinyxml\xmlmgr.h
+	<fstream>
+	<string>
+	"tinyxml.h"
+
+1344531921 source:c:\users\durium\lib\ogre3d\suncrafters\code\tinyxml\xmlmgr.cpp
+	"XmlMgr.h"
 
