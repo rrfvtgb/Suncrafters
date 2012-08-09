@@ -1,5 +1,5 @@
 #include "KeyMgr.h"
-#include "tinyXml/tinyxml.h"
+#include "tinyXml/XmlMgr.h"
 #include "PathMgr.h"
 
 KeyMgr::KeyMgr() : flux(std::string("report.txt").c_str()){
@@ -41,11 +41,10 @@ bool KeyMgr::keyReleased(const OIS::KeyEvent &e){
 
 void KeyMgr::setKeyMap(std::string pathTokeyFile){
 
-    TiXmlDocument* document = new TiXmlDocument(pathTokeyFile.c_str());
-    if(!document->LoadFile()){this->flux << "error while loading; error #" << document->ErrorId() << " : " << document->ErrorDesc() << std::endl;return;}
+    XmlMgr* xmlManager = new XmlMgr();
+    xmlManager->loadFile(pathTokeyFile);
 
-    TiXmlHandle* hdl = new TiXmlHandle(document);
-    TiXmlElement* element = hdl->FirstChildElement().FirstChildElement().ToElement();
+    TiXmlElement* element = xmlManager->getDocumentFirstChildElement();
 
     if(!element){this->flux << "No root node or root node haven't got any child nodes" << std::endl;return;}
 
@@ -54,8 +53,7 @@ void KeyMgr::setKeyMap(std::string pathTokeyFile){
         element = element->NextSiblingElement();
     }
     delete element;
-    delete hdl;
-    delete document;
+    delete xmlManager;
 }
 
 KeyMgr::~KeyMgr(){
