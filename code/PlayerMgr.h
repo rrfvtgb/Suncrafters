@@ -33,7 +33,6 @@ class PlayerMgr
     protected:
     private:
         Ogre::SceneManager* mSceneMgr;
-        std::ofstream flux;
 
         static int playerNumber;
 

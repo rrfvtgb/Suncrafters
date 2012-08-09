@@ -1,7 +1,7 @@
 #include "PlayerMgr.h"
 int PlayerMgr::playerNumber = 0;
 
-PlayerMgr::PlayerMgr(Ogre::SceneManager* sceneMgr) : flux(std::string("report.txt").c_str()){
+PlayerMgr::PlayerMgr(Ogre::SceneManager* sceneMgr){
     this->mSceneMgr = sceneMgr;
     PlayerMgr::playerNumber++;
 
