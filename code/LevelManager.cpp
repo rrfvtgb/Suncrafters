@@ -1,5 +1,6 @@
 #include "LevelManager.h"
 #include "tinyXml/tinyxml.h"
+#include "PathMgr.h"
 
 #include <vector>
 #include <iostream>
