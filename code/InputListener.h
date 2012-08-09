@@ -16,25 +16,27 @@ class InputListener : public ExampleFrameListener, OIS::KeyListener, OIS::MouseL
     public:
         InputListener(Ogre::RenderWindow* win, Ogre::Camera* cam, Ogre::SceneManager *sceneMgr,
                       bool bufferedKeys = false, bool bufferedMouse = false, bool bufferedJoy = false);
+        virtual ~InputListener();
+
         virtual bool frameRenderingQueued(const FrameEvent& evt);
 
         bool mouseMoved(const OIS::MouseEvent &e);
-        bool mousePressed(const OIS::MouseEvent &e, OIS::MouseButtonID id);
-        bool mouseReleased(const OIS::MouseEvent &e, OIS::MouseButtonID id);
+        bool mousePressed(const OIS::MouseEvent &e, OIS::MouseButtonID id); //will be implemented later
+        bool mouseReleased(const OIS::MouseEvent &e, OIS::MouseButtonID id);//will be implemented later
         bool keyPressed(const OIS::KeyEvent &e);
         bool keyReleased(const OIS::KeyEvent &e);
 
-        void setPlayer(PlayerMgr* player);
+        void addPlayer(PlayerMgr* player);
     private:
         Ogre::SceneManager *mSceneMgr;
         bool mShutDown;
-        float walkSpeed;
+        std::ofstream flux;
 
         std::vector <PlayerMgr *> mPlayerList;
-        Ogre::Vector3* mMvt;
         KeyMgr* mKeyManager;
+        float walkSpeed;
 
-        std::ofstream flux;
+        void setRotations();
 };
 
 #endif // INPUTLISTENER_H

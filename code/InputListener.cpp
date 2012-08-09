@@ -6,7 +6,6 @@ InputListener::InputListener(Ogre::RenderWindow* win, Ogre::Camera* cam, Ogre::S
 
     this->mSceneMgr = sceneMgr;
     this->mShutDown = true;
-    this->mMvt = new Ogre::Vector3(0, 0, 0);
     this->mKeyManager = new KeyMgr();
     this->walkSpeed = 200.0f;
 
@@ -19,11 +18,14 @@ bool InputListener::frameRenderingQueued(const Ogre::FrameEvent& evt){
     if(mKeyboard)
         mKeyboard->capture();
 
-    for(int i = 0, l = this->mPlayerList.size(); i < l; i++){
-        this->mPlayerList[i]->mBaseAnim->addTime(evt.timeSinceLastEvent);
+    for(int i = 0, length = this->mPlayerList.size(); i < length; i++){
+
+        this->mPlayerList[i]->mBaseAnim->addTime(evt.timeSinceLastEvent);//Player animation
         this->mPlayerList[i]->mTopAnim->addTime(evt.timeSinceLastEvent);
 
         if(this->mPlayerList[i]->mWalking){
+            //TS_LOCAL needed to walk to "facing directions"
+            //More information on walking on ogre3d intermediate tutorial 1
             this->mPlayerList[i]->mPlayerNode->translate(this->mPlayerList[i]->mDirection * this->walkSpeed * evt.timeSinceLastFrame, Ogre::SceneNode::TS_LOCAL);
         }
     }
@@ -33,17 +35,12 @@ bool InputListener::frameRenderingQueued(const Ogre::FrameEvent& evt){
 
 bool InputListener::mouseMoved(const OIS::MouseEvent &e){
 
-
-    const OIS::MouseState &mouseState = mMouse->getMouseState();
-    this->mRotX = Ogre::Degree(-mouseState.X.rel * 0.13);
-    this->mRotY = Ogre::Degree(-mouseState.Y.rel * 0.13);
-
-    /*flux << "rot Y : " << this->mPlayerList[0]->mCameraPitchNode->getOrientation() << std::endl;
-    flux << "rot Y : " << this->mPlayerList[0]->mCameraNode->getPosition() << std::endl << std::endl;*/
-
+    //yaw the player && camera movements
+    //see ogre3d tutorials on making a 1st person camera system
     Ogre::Real pitchAngle;
     Ogre::Real pitchAngleSign;
 
+    this->setRotations();
     this->mPlayerList[0]->mPlayerNode->yaw(this->mRotX);
     this->mPlayerList[0]->mCameraPitchNode->pitch(this->mRotY);
 
@@ -63,6 +60,13 @@ bool InputListener::mouseMoved(const OIS::MouseEvent &e){
     }
     return true;
 }
+
+void InputListener::setRotations(){
+    const OIS::MouseState &mouseState = mMouse->getMouseState();
+    this->mRotX = Ogre::Degree(-mouseState.X.rel * 0.13);
+    this->mRotY = Ogre::Degree(-mouseState.Y.rel * 0.13);
+}
+
 bool InputListener::mousePressed(const OIS::MouseEvent &e, OIS::MouseButtonID id){
     return true;
 }
@@ -81,11 +85,20 @@ bool InputListener::keyReleased(const OIS::KeyEvent &e){
     return this->mKeyManager->keyReleased(e);
 }
 
-void InputListener::setPlayer(PlayerMgr* player){
+void InputListener::addPlayer(PlayerMgr* player){
     this->mPlayerList.push_back(player);
-    player->mDestination = player->mPlayerNode->getPosition();
-    if(this->mPlayerList.size() == 1){
+
+    if(this->mPlayerList.size() == 1){//Player 0 case
         this->mKeyManager->setPlayer(player);
         player->mCameraRollNode->attachObject(this->mCamera);
     }
+}
+
+InputListener::~InputListener(){
+    for(int i = 0, length = this->mPlayerList.size(); i < length; i++){
+        delete this->mPlayerList[i];
+    }
+
+    delete mKeyManager;
+    delete mSceneMgr;
 }
