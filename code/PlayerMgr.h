@@ -9,32 +9,35 @@ class PlayerMgr
     public:
         PlayerMgr(Ogre::SceneManager* sceneMgr);
         virtual ~PlayerMgr();
-        void addPlayer(int x, int y, int z);
-        void walkTo(Ogre::Vector3 relativeCoord);
-        void endWalk(Ogre::Vector3 relativeCoord);
 
-        void setAnim(std::string anim);
+        void createPlayer(Ogre::Vector3 playerPosition);
+        void initializeCameraNodes(void);
 
-        Ogre::AnimationState* mBaseAnim;
-        Ogre::AnimationState* mTopAnim;
+        void walkTo(Ogre::Vector3 direction);
+        void endWalk(Ogre::Vector3 direction);
+
+        void setPlayerAnimTo(std::string anim);
+
         Ogre::Entity* mEnt;
+        Ogre::AnimationState* mBaseAnim;//Sinbad anim has 2 anim states
+        Ogre::AnimationState* mTopAnim;
 
-        Ogre::SceneNode* mCameraNode;
-        Ogre::SceneNode* mCameraYawNode;
         Ogre::SceneNode* mCameraPitchNode;
         Ogre::SceneNode* mCameraRollNode;
         Ogre::SceneNode* mPlayerNode;
 
         bool mWalking;
         Ogre::Vector3 mDirection;
-        Ogre::Vector3 mDestination;
-        Ogre::Real mDistance;
-        Ogre::Vector3 mLastrelativeCoord; //While isn't released when mDistance hits 0 use walkTo
-        int mKeyPressed;
+
+        int mKeyPressed;//Don't stop anim if 2 keys are pressed and one is released
     protected:
     private:
         Ogre::SceneManager* mSceneMgr;
         std::ofstream flux;
+
+        static int playerNumber;
+
+
 };
 
 #endif // PLAYERMGR_H
