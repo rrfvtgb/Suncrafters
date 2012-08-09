@@ -15,5 +15,6 @@
 *.log
 
 #unusfull files
+*.txt
 *.cbTemp
 *.layout
