@@ -18,7 +18,7 @@ class LevelManager
         virtual ~LevelManager();
 
         void createWorld();
-        void displayChunk(int x, int y);
+        void displayChunk(Ogre::Vector2 chunkCoord);
     protected:
     private:
         Ogre::SceneManager* mSceneMgr;
@@ -28,12 +28,16 @@ class LevelManager
         std::ofstream flux;
         XmlMgr* mXmlManager;
 
-        Block* getProperXBlock(int x1, int y1, int x, int y, int z);
-        Block* getProperYBlock(int x1, int y1, int x, int y, int z);
-        Block* getProperZBlock(int x1, int y1, int x, int y, int z);
+        void manageVisibleFacesAt(Ogre::Vector2 chunkCoord, Ogre::Vector3 cubeCoord);
+        int realToInt(Ogre::Real num);
+        std::string getId(Ogre::Vector3 coord);
 
-        void manageVisibleFacesAt(int x1, int y1, int x, int y, int z);
-        void createFaceAt(std::string face, int x1, int y1, int x, int y, int z);
+        Block* getProperXBlock(Ogre::Vector2 chunkCoord, Ogre::Vector3 cubeCoord);
+        Block* getProperYBlock(Ogre::Vector2 chunkCoord, Ogre::Vector3 cubeCoord);
+        Block* getProperZBlock(Ogre::Vector2 chunkCoord, Ogre::Vector3 cubeCoord);
+
+        void createFaceAt(std::string face, Ogre::Vector2 chunkCoord, Ogre::Vector3 cubeCoord);
+
 
         std::string getCubeMaterialName(int texture, std::string face);
 };
