@@ -44,18 +44,23 @@ bool InputListener::mouseMoved(const OIS::MouseEvent &e){
     this->mPlayerList[0]->mPlayerNode->yaw(this->mRotX);
     this->mPlayerList[0]->mCameraPitchNode->pitch(this->mRotY);
 
-    this->mPlayerList[0]->mPlayerNode->translate(this->mPlayerList[0]->mPlayerNode->getOrientation() * this->mPlayerList[0]->mCameraPitchNode->getOrientation()
-                                          * this->mTranslateVector, Ogre::SceneNode::TS_LOCAL);
+    Ogre::Radian pitchOrientation = this->mPlayerList[0]->mCameraPitchNode->getOrientation().getPitch();
+    if(pitchOrientation < Ogre::Radian(Ogre::Degree(0))){
+        this->mPlayerList[0]->mCameraPitchNode->pitch(-this->mRotY);
+    }else{
+        this->mPlayerList[0]->mPlayerNode->translate(this->mPlayerList[0]->mPlayerNode->getOrientation() * this->mPlayerList[0]->mCameraPitchNode->getOrientation()
+                                              * this->mTranslateVector, Ogre::SceneNode::TS_LOCAL);
 
-    pitchAngle = (2 * Ogre::Degree(Ogre::Math::ACos(this->mPlayerList[0]->mCameraPitchNode->getOrientation().w)).valueDegrees());
+        pitchAngle = (2 * Ogre::Degree(Ogre::Math::ACos(this->mPlayerList[0]->mCameraPitchNode->getOrientation().w)).valueDegrees());
 
-    pitchAngleSign = this->mPlayerList[0]->mCameraPitchNode->getOrientation().x;
+        pitchAngleSign = this->mPlayerList[0]->mCameraPitchNode->getOrientation().x;
 
-    if(pitchAngle > 90.0f){
-        if(pitchAngleSign > 0){
-            this->mPlayerList[0]->mCameraPitchNode->setOrientation(Ogre::Quaternion(Ogre::Math::Sqrt(0.5f), Ogre::Math::Sqrt(0.5f), 0, 0));
-        }else if(pitchAngle < 0){
-            this->mPlayerList[0]->mCameraPitchNode->setOrientation(Ogre::Quaternion(Ogre::Math::Sqrt(0.5f), -Ogre::Math::Sqrt(0.5f), 0, 0));
+        if(pitchAngle > 90.0f){
+            if(pitchAngleSign > 0){
+                this->mPlayerList[0]->mCameraPitchNode->setOrientation(Ogre::Quaternion(Ogre::Math::Sqrt(0.5f), Ogre::Math::Sqrt(0.5f), 0, 0));
+            }else if(pitchAngle < 0){
+                this->mPlayerList[0]->mCameraPitchNode->setOrientation(Ogre::Quaternion(Ogre::Math::Sqrt(0.5f), -Ogre::Math::Sqrt(0.5f), 0, 0));
+            }
         }
     }
     return true;
