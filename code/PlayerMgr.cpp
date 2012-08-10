@@ -29,6 +29,7 @@ void PlayerMgr::initializeCameraNodes(void){
     this->mCameraPitchNode = this->mPlayerNode->createChildSceneNode();
     this->mCameraRollNode  = this->mCameraPitchNode->createChildSceneNode();
     this->mCameraRollNode->yaw(Ogre::Degree(180));
+    this->mCameraRollNode->translate(0, 3, 32);
 }
 
 void PlayerMgr::walkTo(Ogre::Vector3 direction){
