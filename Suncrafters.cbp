@@ -64,6 +64,8 @@
 		<Unit filename="code\PathMgr.h" />
 		<Unit filename="code\PlayerMgr.cpp" />
 		<Unit filename="code\PlayerMgr.h" />
+		<Unit filename="code\tinyXml\XmlMgr.cpp" />
+		<Unit filename="code\tinyXml\XmlMgr.h" />
 		<Unit filename="code\tinyXml\tinystr.cpp" />
 		<Unit filename="code\tinyXml\tinystr.h" />
 		<Unit filename="code\tinyXml\tinyxml.cpp" />
