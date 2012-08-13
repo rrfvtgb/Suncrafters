@@ -44,8 +44,7 @@ void Main::createScene(void)
     light->setPosition(20.0f, 80.0f, 50.0f);
 
     mPlayer = new PlayerMgr(mSceneMgr);
-    mPlayer->createPlayer(Ogre::Vector3(0, 85, 0));
-    mPlayer->initializeCameraNodes();
+    mPlayer->createPlayer(Ogre::Vector3(0, 85, 0), PlayerMgr::Sinbad);
 }
 
 void Main::createFrameListener(void){

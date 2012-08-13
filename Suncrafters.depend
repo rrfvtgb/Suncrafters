@@ -4916,7 +4916,7 @@
 	"Ogre.h"
 	<limits>
 
-1344527144 source:c:\users\durium\lib\ogre3d\suncrafters\code\main.cpp
+1344887128 source:c:\users\durium\lib\ogre3d\suncrafters\code\main.cpp
 	"Main.h"
 	"LevelManager.h"
 	"InputListener.h"
@@ -4937,7 +4937,7 @@
 	"BaseApplication.h"
 	"Block.h"
 
-1344553106 source:c:\users\durium\lib\ogre3d\suncrafters\code\levelmanager.cpp
+1344809482 source:c:\users\durium\lib\ogre3d\suncrafters\code\levelmanager.cpp
 	"LevelManager.h"
 	"PathMgr.h"
 	<vector>
@@ -5067,10 +5067,10 @@
 	"./tinyxml.h"
 	<windows.h>
 
-1344605708 source:c:\users\durium\lib\ogre3d\suncrafters\code\inputlistener.cpp
+1344881305 source:c:\users\durium\lib\ogre3d\suncrafters\code\inputlistener.cpp
 	"InputListener.h"
 
-1344528829 c:\users\durium\lib\ogre3d\suncrafters\code\inputlistener.h
+1344626364 c:\users\durium\lib\ogre3d\suncrafters\code\inputlistener.h
 	<ExampleFrameListener.h>
 	<OIS/OIS.h>
 	<fstream>
@@ -5119,20 +5119,23 @@
 	"OISInterface.h"
 	"OISEffect.h"
 
-1344528428 c:\users\durium\lib\ogre3d\suncrafters\code\playermgr.h
+1344809350 c:\users\durium\lib\ogre3d\suncrafters\code\playermgr.h
 	"BaseApplication.h"
+	"Player.h"
+	"characters/SinbadCharacter.h"
+	<fstream>
 
-1344606007 source:c:\users\durium\lib\ogre3d\suncrafters\code\playermgr.cpp
+1344897525 source:c:\users\durium\lib\ogre3d\suncrafters\code\playermgr.cpp
 	"PlayerMgr.h"
 
-1344531112 c:\users\durium\lib\ogre3d\suncrafters\code\keymgr.h
+1344626258 c:\users\durium\lib\ogre3d\suncrafters\code\keymgr.h
 	<OIS/OIS.h>
 	"BaseApplication.h"
 	"PlayerMgr.h"
 	<map>
 	<fstream>
 
-1344604126 source:c:\users\durium\lib\ogre3d\suncrafters\code\keymgr.cpp
+1344808980 source:c:\users\durium\lib\ogre3d\suncrafters\code\keymgr.cpp
 	"KeyMgr.h"
 	"tinyXml/XmlMgr.h"
 	"PathMgr.h"
@@ -5153,6 +5156,19 @@
 	<string>
 	"tinyxml.h"
 
-1344532532 source:c:\users\durium\lib\ogre3d\suncrafters\code\tinyxml\xmlmgr.cpp
+1344809132 source:c:\users\durium\lib\ogre3d\suncrafters\code\tinyxml\xmlmgr.cpp
 	"XmlMgr.h"
+
+1344879707 c:\users\durium\lib\ogre3d\suncrafters\code\player.h
+	"BaseApplication.h"
+	<vector>
+
+1344880024 c:\users\durium\lib\ogre3d\suncrafters\code\characters\sinbadcharacter.h
+	"../Player.h"
+
+1344879700 source:c:\users\durium\lib\ogre3d\suncrafters\code\player.cpp
+	"Player.h"
+
+1344897527 source:c:\users\durium\lib\ogre3d\suncrafters\code\characters\sinbadcharacter.cpp
+	"SinbadCharacter.h"
 

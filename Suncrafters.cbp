@@ -26,6 +26,7 @@
 				<Option compiler="gcc" />
 				<Compiler>
 					<Add option="-O2" />
+					<Add option="-Wall" />
 				</Compiler>
 				<Linker>
 					<Add option="-s" />
@@ -62,8 +63,12 @@
 		<Unit filename="code\Main.h" />
 		<Unit filename="code\PathMgr.cpp" />
 		<Unit filename="code\PathMgr.h" />
+		<Unit filename="code\Player.cpp" />
+		<Unit filename="code\Player.h" />
 		<Unit filename="code\PlayerMgr.cpp" />
 		<Unit filename="code\PlayerMgr.h" />
+		<Unit filename="code\characters\SinbadCharacter.cpp" />
+		<Unit filename="code\characters\SinbadCharacter.h" />
 		<Unit filename="code\tinyXml\XmlMgr.cpp" />
 		<Unit filename="code\tinyXml\XmlMgr.h" />
 		<Unit filename="code\tinyXml\tinystr.cpp" />

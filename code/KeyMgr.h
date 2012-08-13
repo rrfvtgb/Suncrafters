@@ -18,6 +18,9 @@ class KeyMgr
         bool keyPressed(const OIS::KeyEvent &e);
         bool keyReleased(const OIS::KeyEvent &e);
 
+        bool mousePressed(const OIS::MouseEvent &e, OIS::MouseButtonID id);
+        bool mouseReleased(const OIS::MouseEvent &e, OIS::MouseButtonID id);
+
         void setKeyMap(std::string pathToKeyFile);
         void setPlayer(PlayerMgr* player){this->mPlayer = player;}
 

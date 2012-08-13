@@ -21,8 +21,8 @@ class InputListener : public ExampleFrameListener, OIS::KeyListener, OIS::MouseL
         virtual bool frameRenderingQueued(const FrameEvent& evt);
 
         bool mouseMoved(const OIS::MouseEvent &e);
-        bool mousePressed(const OIS::MouseEvent &e, OIS::MouseButtonID id); //will be implemented later
-        bool mouseReleased(const OIS::MouseEvent &e, OIS::MouseButtonID id);//will be implemented later
+        bool mousePressed(const OIS::MouseEvent &e, OIS::MouseButtonID id);
+        bool mouseReleased(const OIS::MouseEvent &e, OIS::MouseButtonID id);
         bool keyPressed(const OIS::KeyEvent &e);
         bool keyReleased(const OIS::KeyEvent &e);
 
@@ -34,7 +34,6 @@ class InputListener : public ExampleFrameListener, OIS::KeyListener, OIS::MouseL
 
         std::vector <PlayerMgr *> mPlayerList;
         KeyMgr* mKeyManager;
-        float walkSpeed;
 
         void setRotations();
 };

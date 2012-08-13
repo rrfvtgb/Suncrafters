@@ -111,8 +111,6 @@ Block* LevelManager::getProperZBlock(Ogre::Vector2 chunkCoord, Ogre::Vector3 cub
 }
 
 void LevelManager::createFaceAt(std::string face, Ogre::Vector2 chunkCoord, Ogre::Vector3 cubeCoord){
-    flux << "Chunk : " << chunkCoord << std::endl;
-    flux << "cube : " << cubeCoord << std::endl;
     int texBlock = this->m_Chunks[realToInt(chunkCoord.x)][realToInt(chunkCoord.y)]->m_map[realToInt(cubeCoord.x)][realToInt(cubeCoord.y)][realToInt(cubeCoord.z)]->mTexture;//needed before x,y,z coord changes
 
     cubeCoord.x = (this->m_Chunks[realToInt(chunkCoord.x)][realToInt(chunkCoord.y)]->mCoord.x + cubeCoord.x)*80;

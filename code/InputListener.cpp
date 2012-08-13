@@ -1,13 +1,13 @@
 #include "InputListener.h"
+#define RUN_SPEED 200
 
 InputListener::InputListener(Ogre::RenderWindow* win, Ogre::Camera* cam, Ogre::SceneManager *sceneMgr,
                              bool bufferedKeys, bool bufferedMouse, bool bufferedJoy):
-                             ExampleFrameListener(win, cam, bufferedKeys, bufferedMouse, bufferedJoy), flux(std::string("report.txt").c_str()){
+                             ExampleFrameListener(win, cam, bufferedKeys, bufferedMouse, bufferedJoy), flux(std::string("report/InputListener.txt").c_str()){
 
     this->mSceneMgr = sceneMgr;
     this->mShutDown = true;
     this->mKeyManager = new KeyMgr();
-    this->walkSpeed = 200.0f;
 
     this->mMouse->setEventCallback(this);
     mKeyboard->setEventCallback(this);
@@ -18,15 +18,21 @@ bool InputListener::frameRenderingQueued(const Ogre::FrameEvent& evt){
     if(mKeyboard)
         mKeyboard->capture();
 
+    flux << "0" << std::endl;
     for(int i = 0, length = this->mPlayerList.size(); i < length; i++){
 
-        this->mPlayerList[i]->mBaseAnim->addTime(evt.timeSinceLastEvent);//Player animation
-        this->mPlayerList[i]->mTopAnim->addTime(evt.timeSinceLastEvent);
+        if(this->mPlayerList[i]->getTopAnimId() != Player::ANIM_NONE){
+            this->mPlayerList[i]->getTopAnimState()->addTime(evt.timeSinceLastEvent);
+        }
+        if(this->mPlayerList[i]->getBaseAnimId() != Player::ANIM_NONE){
+            this->mPlayerList[i]->getBaseAnimState()->addTime(evt.timeSinceLastEvent);//Player animation
+        }
+        this->mPlayerList[i]->addTime(Ogre::Real(evt.timeSinceLastFrame));
 
-        if(this->mPlayerList[i]->mWalking){
+        if(this->mPlayerList[i]->isWalking()){
             //TS_LOCAL needed to walk to "facing directions"
             //More information on walking on ogre3d intermediate tutorial 1
-            this->mPlayerList[i]->mPlayerNode->translate(this->mPlayerList[i]->mDirection * this->walkSpeed * evt.timeSinceLastFrame, Ogre::SceneNode::TS_LOCAL);
+            this->mPlayerList[i]->mPlayerNode->translate(this->mPlayerList[i]->mDirection * RUN_SPEED * evt.timeSinceLastFrame, Ogre::SceneNode::TS_LOCAL);
         }
     }
 
@@ -56,10 +62,10 @@ void InputListener::setRotations(){
 }
 
 bool InputListener::mousePressed(const OIS::MouseEvent &e, OIS::MouseButtonID id){
-    return true;
+    return this->mKeyManager->mousePressed(e, id);
 }
 bool InputListener::mouseReleased(const OIS::MouseEvent &e, OIS::MouseButtonID id){
-    return true;
+    return this->mKeyManager->mouseReleased(e, id);
 }
 bool InputListener::keyPressed(const OIS::KeyEvent &e){
     if(this->mKeyManager->keyPressed(e)){

@@ -2,41 +2,63 @@
 #define PLAYERMGR_H
 
 #include "BaseApplication.h"
+#include "Player.h"
+#include "characters/SinbadCharacter.h"
+
+#include <fstream>
 
 
 class PlayerMgr
 {
     public:
+        enum Characters{
+            Sinbad
+        };
         PlayerMgr(Ogre::SceneManager* sceneMgr);
         virtual ~PlayerMgr();
 
-        void createPlayer(Ogre::Vector3 playerPosition);
+        void addTime(Ogre::Real deltaTime);
+        void createPlayer(Ogre::Vector3 playerPosition, Characters playerType = PlayerMgr::Sinbad);
         void initializeCameraNodes(void);
 
         void walkTo(Ogre::Vector3 direction);
         void endWalk(Ogre::Vector3 direction);
 
-        void setPlayerAnimTo(std::string anim);
+        int getTopAnimId();
+        int getBaseAnimId();
+
+        Ogre::AnimationState* getTopAnimState();
+        Ogre::AnimationState* getBaseAnimState();
+
+        void setBaseAnimation(int id, bool reset = false);
+        void setTopAnimation(int id, bool reset = false);
+
+        bool isWalking();
+        void setWalking(bool walk);
+        bool isJumping();
+
+        int getTimer();
+        void setTimer(int time);
+
+        void AddHeight(int height);
 
         Ogre::Entity* mEnt;
-        Ogre::AnimationState* mBaseAnim;//Sinbad anim has 2 anim states
-        Ogre::AnimationState* mTopAnim;
 
         Ogre::SceneNode* mCameraPitchNode;
         Ogre::SceneNode* mCameraRollNode;
         Ogre::SceneNode* mPlayerNode;
 
-        bool mWalking;
         Ogre::Vector3 mDirection;
+        Player* mPlayer;
 
-        int mKeyPressed;//Don't stop anim if 2 keys are pressed and one is released
+        int mKeyPressed;//Don't stop walking if 2 keys are pressed and one is released
+
+        static int playerNumber;
     protected:
     private:
         Ogre::SceneManager* mSceneMgr;
 
-        static int playerNumber;
-
-
+        std::ofstream flux;
 };
 
 #endif // PLAYERMGR_H
