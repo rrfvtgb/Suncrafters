@@ -2,14 +2,13 @@
 #define PLAYERMGR_H
 
 #include "BaseApplication.h"
-#include "Player.h"
+#include "characters/Character.h"
 #include "characters/SinbadCharacter.h"
 
 #include <fstream>
 
 
-class PlayerMgr
-{
+class PlayerMgr{
     public:
         enum Characters{
             Sinbad
@@ -49,7 +48,7 @@ class PlayerMgr
         Ogre::SceneNode* mPlayerNode;
 
         Ogre::Vector3 mDirection;
-        Player* mPlayer;
+        Character* mPlayer;
 
         int mKeyPressed;//Don't stop walking if 2 keys are pressed and one is released
 

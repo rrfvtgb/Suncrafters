@@ -2,7 +2,7 @@
 #include "tinyXml/XmlMgr.h"
 #include "PathMgr.h"
 
-KeyMgr::KeyMgr() /*: flux(std::string("report.txt").c_str())*/{
+KeyMgr::KeyMgr() : flux(std::string("report/key.txt").c_str()){
     mDirection = Ogre::Vector3::ZERO;
 
     std::string pathTokeyFile = PathMgr::getDataStorageFolder() + "/config/keys.xml";
@@ -23,13 +23,14 @@ bool KeyMgr::keyPressed(const OIS::KeyEvent &e){
     if(e.key == this->mKeyMap["right"]){ this->mDirection.x -= 50; this->mPlayer->mKeyPressed++;this->mPlayer->walkTo(this->mDirection);}
     if(e.key == this->mKeyMap["left"]){  this->mDirection.x += 50; this->mPlayer->mKeyPressed++; this->mPlayer->walkTo(this->mDirection);}
 
-    if(e.key == this->mKeyMap["jump"] && (this->mPlayer->getTopAnimId() == Player::ANIM_IDLE_TOP || this->mPlayer->getTopAnimId() == Player::ANIM_RUN_TOP)){
-        this->mPlayer->setBaseAnimation(Player::ANIM_JUMP_START, true);
-        this->mPlayer->setTopAnimation(Player::ANIM_NONE);
+    if(e.key == this->mKeyMap["jump"] && (this->mPlayer->getTopAnimId() == Character::ANIM_IDLE_TOP || this->mPlayer->getTopAnimId() == Character::ANIM_RUN_TOP)){
+        this->mPlayer->setBaseAnimation(Character::ANIM_JUMP_START, true);
+        this->mPlayer->setTopAnimation(Character::ANIM_NONE);
         this->mPlayer->setTimer(0);
     }
-    if (e.key == this->mKeyMap["drawSwords"] && (this->mPlayer->getTopAnimId() == Player::ANIM_IDLE_TOP || this->mPlayer->getTopAnimId() == Player::ANIM_RUN_TOP)){
+    if (e.key == this->mKeyMap["drawSwords"] && (this->mPlayer->getTopAnimId() == Character::ANIM_IDLE_TOP || this->mPlayer->getTopAnimId() == Character::ANIM_RUN_TOP)){
         // take swords out (or put them back, since it's the same animation but reversed)
+        flux << "drawn" << std::endl;
         this->mPlayer->setTopAnimation(SinbadCharacter::ANIM_DRAW_SWORDS, true);
         this->mPlayer->setTimer(0);
     }
@@ -53,7 +54,7 @@ bool KeyMgr::keyReleased(const OIS::KeyEvent &e){
 
 bool KeyMgr::mousePressed(const OIS::MouseEvent &e, OIS::MouseButtonID id){
 
-    if (this->mPlayer->mPlayer->mSwordsDrawn && (this->mPlayer->getTopAnimId() == Player::ANIM_IDLE_TOP || this->mPlayer->getTopAnimId() == Player::ANIM_RUN_TOP)){
+    if (this->mPlayer->mPlayer->mSwordsDrawn && (this->mPlayer->getTopAnimId() == Character::ANIM_IDLE_TOP || this->mPlayer->getTopAnimId() == Character::ANIM_RUN_TOP)){
         // if swords are out, and character's not doing something weird, then SLICE!
         if (id == OIS::MB_Left) this->mPlayer->setTopAnimation(SinbadCharacter::ANIM_SLICE_VERTICAL, true);
         else if (id == OIS::MB_Right) this->mPlayer->setTopAnimation(SinbadCharacter::ANIM_SLICE_HORIZONTAL, true);

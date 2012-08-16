@@ -1,7 +1,7 @@
 #include "PlayerMgr.h"
 class PlayerMgrFactory{
     public:
-        Player* makePlayer(PlayerMgr::Characters playerType, Ogre::SceneManager* sceneMgr){
+        Character* makePlayer(PlayerMgr::Characters playerType, Ogre::SceneManager* sceneMgr){
             switch(playerType){
                 case PlayerMgr::Sinbad: return new SinbadCharacter(sceneMgr); break;
             }
@@ -53,8 +53,8 @@ void PlayerMgr::initializeCameraNodes(void){
 }
 
 void PlayerMgr::walkTo(Ogre::Vector3 direction){
-    this->setBaseAnimation(Player::ANIM_RUN_BASE);
-    this->setTopAnimation(Player::ANIM_RUN_TOP);
+    this->setBaseAnimation(Character::ANIM_RUN_BASE);
+    this->setTopAnimation(Character::ANIM_RUN_TOP);
 
     this->mDirection = direction;
     this->mDirection.normalise();
@@ -66,8 +66,8 @@ void PlayerMgr::endWalk(Ogre::Vector3 direction){
         this->setWalking(false);
         this->mDirection = Ogre::Vector3::ZERO;
 
-        this->setBaseAnimation(Player::ANIM_IDLE_BASE);
-        this->setTopAnimation(Player::ANIM_IDLE_TOP);
+        this->setBaseAnimation(Character::ANIM_IDLE_BASE);
+        this->setTopAnimation(Character::ANIM_IDLE_TOP);
     }
     else{this->walkTo(direction);}
 }

@@ -21,13 +21,7 @@ bool InputListener::frameRenderingQueued(const Ogre::FrameEvent& evt){
     flux << "0" << std::endl;
     for(int i = 0, length = this->mPlayerList.size(); i < length; i++){
 
-        if(this->mPlayerList[i]->getTopAnimId() != Player::ANIM_NONE){
-            this->mPlayerList[i]->getTopAnimState()->addTime(evt.timeSinceLastEvent);
-        }
-        if(this->mPlayerList[i]->getBaseAnimId() != Player::ANIM_NONE){
-            this->mPlayerList[i]->getBaseAnimState()->addTime(evt.timeSinceLastEvent);//Player animation
-        }
-        this->mPlayerList[i]->addTime(Ogre::Real(evt.timeSinceLastFrame));
+        this->mPlayerList[i]->addTime(Ogre::Real(evt.timeSinceLastFrame));//add AnimTime
 
         if(this->mPlayerList[i]->isWalking()){
             //TS_LOCAL needed to walk to "facing directions"

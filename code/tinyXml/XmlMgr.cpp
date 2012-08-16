@@ -1,6 +1,6 @@
 #include "XmlMgr.h"
 
-XmlMgr::XmlMgr() : mDocument(0), mHdl(0), flux(std::string("xmlError.txt").c_str()){}
+XmlMgr::XmlMgr() : mDocument(0), mHdl(0), flux(std::string("report/xmlError.txt").c_str()){}
 
 void XmlMgr::loadFile(std::string filename){
     mDocument = new TiXmlDocument(filename.c_str());

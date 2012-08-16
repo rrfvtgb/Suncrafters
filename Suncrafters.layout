@@ -8,25 +8,25 @@
 		<Cursor position="1582" topLine="73" />
 	</File>
 	<File name="code\Block.cpp" open="0" top="0" tabpos="4">
-		<Cursor position="45" topLine="0" />
+		<Cursor position="59" topLine="0" />
 	</File>
 	<File name="code\Block.h" open="0" top="0" tabpos="1">
 		<Cursor position="165" topLine="0" />
 	</File>
-	<File name="code\Chunk.cpp" open="0" top="0" tabpos="4">
-		<Cursor position="602" topLine="52" />
+	<File name="code\Chunk.cpp" open="0" top="0" tabpos="8">
+		<Cursor position="1523" topLine="16" />
 	</File>
 	<File name="code\Chunk.h" open="0" top="0" tabpos="3">
 		<Cursor position="342" topLine="0" />
 	</File>
-	<File name="code\InputListener.cpp" open="0" top="0" tabpos="1">
-		<Cursor position="996" topLine="0" />
+	<File name="code\InputListener.cpp" open="0" top="0" tabpos="9">
+		<Cursor position="1157" topLine="12" />
 	</File>
 	<File name="code\InputListener.h" open="0" top="0" tabpos="4">
 		<Cursor position="847" topLine="8" />
 	</File>
-	<File name="code\KeyMgr.cpp" open="0" top="0" tabpos="7">
-		<Cursor position="3746" topLine="47" />
+	<File name="code\KeyMgr.cpp" open="1" top="1" tabpos="7">
+		<Cursor position="121" topLine="0" />
 	</File>
 	<File name="code\KeyMgr.h" open="0" top="0" tabpos="2">
 		<Cursor position="491" topLine="8" />
@@ -35,13 +35,13 @@
 		<Cursor position="503" topLine="10" />
 	</File>
 	<File name="code\LevelManager.cpp" open="0" top="0" tabpos="4">
-		<Cursor position="5538" topLine="111" />
+		<Cursor position="519" topLine="112" />
 	</File>
 	<File name="code\LevelManager.h" open="0" top="0" tabpos="3">
 		<Cursor position="652" topLine="22" />
 	</File>
 	<File name="code\Main.cpp" open="0" top="0" tabpos="1">
-		<Cursor position="834" topLine="20" />
+		<Cursor position="1060" topLine="15" />
 	</File>
 	<File name="code\Main.h" open="0" top="0" tabpos="0">
 		<Cursor position="333" topLine="0" />
@@ -52,26 +52,26 @@
 	<File name="code\PathMgr.h" open="0" top="0" tabpos="0">
 		<Cursor position="38" topLine="0" />
 	</File>
-	<File name="code\Player.cpp" open="1" top="1" tabpos="6">
-		<Cursor position="235" topLine="72" />
-	</File>
-	<File name="code\Player.h" open="1" top="0" tabpos="5">
-		<Cursor position="2107" topLine="7" />
-	</File>
 	<File name="code\PlayerMgr.cpp" open="1" top="0" tabpos="2">
-		<Cursor position="1124" topLine="64" />
+		<Cursor position="1173" topLine="0" />
 	</File>
 	<File name="code\PlayerMgr.h" open="1" top="0" tabpos="1">
-		<Cursor position="470" topLine="9" />
+		<Cursor position="1325" topLine="40" />
+	</File>
+	<File name="code\characters\Character.cpp" open="1" top="0" tabpos="5">
+		<Cursor position="3382" topLine="84" />
+	</File>
+	<File name="code\characters\Character.h" open="1" top="0" tabpos="6">
+		<Cursor position="2066" topLine="43" />
 	</File>
 	<File name="code\characters\SinbadCharacter.cpp" open="1" top="0" tabpos="4">
-		<Cursor position="136" topLine="2" />
+		<Cursor position="146" topLine="0" />
 	</File>
 	<File name="code\characters\SinbadCharacter.h" open="1" top="0" tabpos="3">
 		<Cursor position="869" topLine="12" />
 	</File>
 	<File name="code\tinyXml\XmlMgr.cpp" open="0" top="0" tabpos="0">
-		<Cursor position="106" topLine="0" />
+		<Cursor position="90" topLine="0" />
 	</File>
 	<File name="code\tinyXml\XmlMgr.h" open="0" top="0" tabpos="0">
 		<Cursor position="285" topLine="3" />

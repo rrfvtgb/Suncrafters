@@ -1,15 +1,14 @@
 #ifndef SINBADCHARACTER_H
 #define SINBADCHARACTER_H
 
-#include "../Player.h"
+#include "Character.h"
 
 #define SINBAD_NUM_ANIMS NUM_ANIMS+5
 
-class SinbadCharacter : public Player{
+class SinbadCharacter : public Character{
     public:
         enum SinbadAnimId{
-            ANIM_NONE = Player::ANIM_NONE,
-            ANIM_HANDS_CLOSED,
+            ANIM_HANDS_CLOSED = Character::ANIM_NONE,//Anim none isn't counted
             ANIM_HANDS_RELAXED,
             ANIM_DRAW_SWORDS,
             ANIM_SLICE_VERTICAL,

@@ -63,10 +63,10 @@
 		<Unit filename="code\Main.h" />
 		<Unit filename="code\PathMgr.cpp" />
 		<Unit filename="code\PathMgr.h" />
-		<Unit filename="code\Player.cpp" />
-		<Unit filename="code\Player.h" />
 		<Unit filename="code\PlayerMgr.cpp" />
 		<Unit filename="code\PlayerMgr.h" />
+		<Unit filename="code\characters\Character.cpp" />
+		<Unit filename="code\characters\Character.h" />
 		<Unit filename="code\characters\SinbadCharacter.cpp" />
 		<Unit filename="code\characters\SinbadCharacter.h" />
 		<Unit filename="code\tinyXml\XmlMgr.cpp" />

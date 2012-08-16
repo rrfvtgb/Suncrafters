@@ -1,6 +1,6 @@
 #include "SinbadCharacter.h"
 
-SinbadCharacter::SinbadCharacter(Ogre::SceneManager* sceneMgr) : flux(std::string("report/report.txt").c_str()){
+SinbadCharacter::SinbadCharacter(Ogre::SceneManager* sceneMgr) : flux(std::string("report/character.txt").c_str()){
     this->mSceneMgr = sceneMgr;
 }
 
@@ -9,19 +9,12 @@ void SinbadCharacter::createPlayer(Ogre::Vector3 playerPosition, Ogre::SceneNode
     this->mEnt = ent;
     this->mPlayerNode = playerNode;
 
-    flux << "0" << std::endl;
-    flux << &mPlayerNode << std::endl;
-
     playerNode    = this->mSceneMgr->getRootSceneNode()->createChildSceneNode("playerNode");
 
     this->mPlayerNode = playerNode;
     this->mEnt    = this->mSceneMgr->createEntity(std::string("player"), "Sinbad.mesh");
 
-    flux << "1" << std::endl;
-
     this->mPlayerNode->attachObject(mEnt);
-
-    flux << "2" << std::endl;
 
     mSword1 = this->mSceneMgr->createEntity("SinbadSword1", "Sword.mesh");
     mSword2 = this->mSceneMgr->createEntity("SinbadSword2", "Sword.mesh");
@@ -30,24 +23,18 @@ void SinbadCharacter::createPlayer(Ogre::Vector3 playerPosition, Ogre::SceneNode
     mEnt->attachObjectToBone("Sheath.R", mSword2);
 
     //this->mEnt->getSkeleton()->setBlendMode(ANIMBLEND_CUMULATIVE); //cant seem to find ANIMBLEND_CUMULATIVE
-    flux << "3" << std::endl;
 
     this->mPlayerNode->scale(17, 17, 17);
     this->mPlayerNode->setPosition(playerPosition);
     this->mCurrentheight = playerPosition.y;
     this->setupAnimations();
-    flux << "4" << std::endl;
-
 
 }
 
 void SinbadCharacter::setupAnimations(){
-    Player::setupAnimations();//Call Mother function before this one
+    Character::setupAnimations();//Call Mother function before this one
 
     std::string animNames[] = {"HandsClosed", "HandsRelaxed", "DrawSwords", "SliceVertical", "SliceHorizontal"};
-
-    flux << "size : " << mAnims.size() << std::endl;
-    flux << "SINBAD_NUM_ANIMS : " << SINBAD_NUM_ANIMS << std::endl;
 
     for (int i = mAnims.size(), a = 0; i < SINBAD_NUM_ANIMS; i++, a++){//i for mAnims and a for animNames
         this->mAnims.push_back(mEnt->getAnimationState(animNames[a]));
@@ -57,7 +44,6 @@ void SinbadCharacter::setupAnimations(){
     }
     mAnims[ANIM_HANDS_RELAXED]->setEnabled(true);
     mSwordsDrawn = false;
-    flux << "ANIM_HANDS_RELAXED : " << ANIM_HANDS_RELAXED << std::endl;
 }
 
 void SinbadCharacter::updateAnimations(Ogre::Real deltaTime){
@@ -101,7 +87,7 @@ void SinbadCharacter::updateAnimations(Ogre::Real deltaTime){
 
         if (this->mBaseAnimID == ANIM_IDLE_BASE) this->mBaseAnimSpeed = 0;// don't sway hips from side to side when slicing. that's just embarrasing.
     }
-    Player::updateAnimations(deltaTime);
+    Character::updateAnimations(deltaTime);
 }
 
 SinbadCharacter::~SinbadCharacter(){
