@@ -9,7 +9,9 @@
 #include <sys/types.h>
 #endif
 
-PathMgr::PathMgr(){}
+PathMgr::PathMgr(){
+    //ctor
+}
 std::string PathMgr::getDataStorageFolder(){
     std::string pathToStorageData;
     if(PathMgr::isWindows()){

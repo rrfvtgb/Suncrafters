@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 Suncrafters
 ===========
 
@@ -16,15 +17,15 @@ To compile you will need Ogre 1.7's folder next to suncrafter's folder
 ### Version alpha 0.2 <- processing
 * Sky implemented (skyX)<- processing (durium) // having some problems compiling skyX
 * Some landscape generated <- processing (rrfvtgb)
-* FirstPerson camera implemented
-* Right & left click implemented
+* FirstPerson camera implemented <- processing (durium)
 * Map 10 000 * 10 000 blocks (loaded from files)
+* Landscape generation upgrade
 
 ### Version alpha 0.3
+* Weapon, block destruction, block add
 * City implementation
 * Buildings & gui
 * A round world
-* Landscape upgrade
 
 ### Version alpha 0.4
 * Gui

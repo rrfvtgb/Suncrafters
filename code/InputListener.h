@@ -5,7 +5,6 @@
 #include <OIS/OIS.h>
 
 #include <fstream>
-
 #include <vector>
 
 #include "BaseApplication.h"

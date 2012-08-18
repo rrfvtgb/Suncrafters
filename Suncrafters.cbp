@@ -17,6 +17,7 @@
 				<Linker>
 					<Add library="OIS_d" />
 					<Add library="OgreMain_d" />
+					<Add library="skyX_d" />
 				</Linker>
 			</Target>
 			<Target title="Release">
@@ -32,6 +33,7 @@
 					<Add option="-s" />
 					<Add library="OIS" />
 					<Add library="OgreMain" />
+					<Add library="skyX" />
 				</Linker>
 			</Target>
 		</Build>
@@ -41,10 +43,12 @@
 			<Add directory="..\Ogre\include\OGRE" />
 			<Add directory="..\Ogre\include\OIS" />
 			<Add directory="..\Ogre\boost_1_44" />
+			<Add directory="code\skyX" />
 		</Compiler>
 		<Linker>
 			<Add directory="..\Ogre\bin\$(TARGET_NAME)" />
 			<Add directory="..\Ogre\bin" />
+			<Add directory="link" />
 		</Linker>
 		<Unit filename="code\BaseApplication.cpp" />
 		<Unit filename="code\BaseApplication.h" />
@@ -69,6 +73,25 @@
 		<Unit filename="code\characters\Character.h" />
 		<Unit filename="code\characters\SinbadCharacter.cpp" />
 		<Unit filename="code\characters\SinbadCharacter.h" />
+		<Unit filename="code\skyX\AtmosphereManager.h" />
+		<Unit filename="code\skyX\BasicController.h" />
+		<Unit filename="code\skyX\CloudsManager.h" />
+		<Unit filename="code\skyX\ColorGradient.h" />
+		<Unit filename="code\skyX\Controller.h" />
+		<Unit filename="code\skyX\GPUManager.h" />
+		<Unit filename="code\skyX\MeshManager.h" />
+		<Unit filename="code\skyX\MoonManager.h" />
+		<Unit filename="code\skyX\Prerequisites.h" />
+		<Unit filename="code\skyX\SkyX.h" />
+		<Unit filename="code\skyX\VCloudsManager.h" />
+		<Unit filename="code\skyX\VClouds\DataManager.h" />
+		<Unit filename="code\skyX\VClouds\Ellipsoid.h" />
+		<Unit filename="code\skyX\VClouds\FastFakeRandom.h" />
+		<Unit filename="code\skyX\VClouds\GeometryBlock.h" />
+		<Unit filename="code\skyX\VClouds\GeometryManager.h" />
+		<Unit filename="code\skyX\VClouds\Lightning.h" />
+		<Unit filename="code\skyX\VClouds\LightningManager.h" />
+		<Unit filename="code\skyX\VClouds\VClouds.h" />
 		<Unit filename="code\tinyXml\XmlMgr.cpp" />
 		<Unit filename="code\tinyXml\XmlMgr.h" />
 		<Unit filename="code\tinyXml\tinystr.cpp" />
