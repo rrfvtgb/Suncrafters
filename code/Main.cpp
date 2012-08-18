@@ -1,7 +1,6 @@
 #include "Main.h"
 #include "LevelManager.h"
 #include "InputListener.h"
-//#include "SkyX.h"
 
 Main::Main()
 {
@@ -46,19 +45,6 @@ void Main::createScene(void)
 
     mPlayer = new PlayerMgr(mSceneMgr);
     mPlayer->createPlayer(Ogre::Vector3(0, 85, 0), PlayerMgr::Sinbad);
-
-    /*SkyX::BasicController* mBasicController = new SkyX::BasicController();
-    SkyX::SkyX* mSkyX = new SkyX::SkyX(mSceneMgr, mBasicController);
-    mSkyX->create();
-
-    mBasicController->setMoonPhase(0.75f);
-
-    // Register listeners
-    mRoot->addFrameListener(mSkyX);
-    mWindow->addListener(mSkyX);
-
-    mSkyX->getCloudsManager()->add(SkyX::CloudLayer::Options());*/
-
 }
 
 void Main::createFrameListener(void){

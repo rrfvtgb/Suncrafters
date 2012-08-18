@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 #include "PathMgr.h"
 
 #include <fstream>
@@ -14,7 +13,6 @@ PathMgr::PathMgr(){
     //ctor
 }
 std::string PathMgr::getDataStorageFolder(){
-    return std::string("bin/assets");//Need to find a way to zip files in assets folder then unzip them in suncrafters folder
     std::string pathToStorageData;
     if(PathMgr::isWindows()){
         pathToStorageData = std::string(getenv("APPDATA")) + std::string("\\.Suncrafters\\");

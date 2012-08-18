@@ -19,22 +19,40 @@
 	<File name="code\Chunk.h" open="0" top="0" tabpos="8">
 		<Cursor position="342" topLine="0" />
 	</File>
+	<File name="code\InputListener.cpp" open="1" top="0" tabpos="7">
+		<Cursor position="624" topLine="0" />
+	</File>
+	<File name="code\InputListener.h" open="1" top="0" tabpos="3">
+		<Cursor position="131" topLine="0" />
+	</File>
 	<File name="code\Launcher.cpp" open="0" top="0" tabpos="8">
 		<Cursor position="503" topLine="10" />
 	</File>
-	<File name="code\LevelManager.cpp" open="0" top="0" tabpos="4">
-		<Cursor position="519" topLine="112" />
+	<File name="code\LevelManager.cpp" open="0" top="0" tabpos="6">
+		<Cursor position="519" topLine="8" />
 	</File>
 	<File name="code\LevelManager.h" open="0" top="0" tabpos="3">
 		<Cursor position="652" topLine="22" />
 	</File>
-	<File name="code\Main.cpp" open="1" top="1" tabpos="1">
-		<Cursor position="1461" topLine="36" />
+	<File name="code\Main.cpp" open="1" top="0" tabpos="1">
+		<Cursor position="1215" topLine="25" />
 	</File>
 	<File name="code\Main.h" open="0" top="0" tabpos="0">
 		<Cursor position="333" topLine="0" />
 	</File>
-	<File name="code\skyX\SkyX.h" open="0" top="0" tabpos="0">
-		<Cursor position="1594" topLine="228" />
+	<File name="code\PathMgr.cpp" open="1" top="1" tabpos="6">
+		<Cursor position="213" topLine="0" />
+	</File>
+	<File name="code\PlayerMgr.h" open="1" top="0" tabpos="2">
+		<Cursor position="219" topLine="0" />
+	</File>
+	<File name="code\characters\Character.h" open="1" top="0" tabpos="4">
+		<Cursor position="2066" topLine="35" />
+	</File>
+	<File name="code\characters\SinbadCharacter.h" open="1" top="0" tabpos="5">
+		<Cursor position="806" topLine="3" />
+	</File>
+	<File name="code\tinyXml\XmlMgr.cpp" open="0" top="0" tabpos="0">
+		<Cursor position="113" topLine="0" />
 	</File>
 </CodeBlocks_layout_file>
