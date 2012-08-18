@@ -16,20 +16,8 @@
 	<File name="code\Chunk.cpp" open="0" top="0" tabpos="8">
 		<Cursor position="1523" topLine="16" />
 	</File>
-	<File name="code\Chunk.h" open="0" top="0" tabpos="3">
+	<File name="code\Chunk.h" open="0" top="0" tabpos="8">
 		<Cursor position="342" topLine="0" />
-	</File>
-	<File name="code\InputListener.cpp" open="0" top="0" tabpos="9">
-		<Cursor position="1157" topLine="12" />
-	</File>
-	<File name="code\InputListener.h" open="0" top="0" tabpos="4">
-		<Cursor position="847" topLine="8" />
-	</File>
-	<File name="code\KeyMgr.cpp" open="1" top="1" tabpos="7">
-		<Cursor position="121" topLine="0" />
-	</File>
-	<File name="code\KeyMgr.h" open="0" top="0" tabpos="2">
-		<Cursor position="491" topLine="8" />
 	</File>
 	<File name="code\Launcher.cpp" open="0" top="0" tabpos="8">
 		<Cursor position="503" topLine="10" />
@@ -40,43 +28,13 @@
 	<File name="code\LevelManager.h" open="0" top="0" tabpos="3">
 		<Cursor position="652" topLine="22" />
 	</File>
-	<File name="code\Main.cpp" open="0" top="0" tabpos="1">
-		<Cursor position="1060" topLine="15" />
+	<File name="code\Main.cpp" open="1" top="1" tabpos="1">
+		<Cursor position="1461" topLine="36" />
 	</File>
 	<File name="code\Main.h" open="0" top="0" tabpos="0">
 		<Cursor position="333" topLine="0" />
 	</File>
-	<File name="code\PathMgr.cpp" open="0" top="0" tabpos="0">
-		<Cursor position="419" topLine="12" />
-	</File>
-	<File name="code\PathMgr.h" open="0" top="0" tabpos="0">
-		<Cursor position="38" topLine="0" />
-	</File>
-	<File name="code\PlayerMgr.cpp" open="1" top="0" tabpos="2">
-		<Cursor position="1173" topLine="0" />
-	</File>
-	<File name="code\PlayerMgr.h" open="1" top="0" tabpos="1">
-		<Cursor position="1325" topLine="40" />
-	</File>
-	<File name="code\characters\Character.cpp" open="1" top="0" tabpos="5">
-		<Cursor position="3382" topLine="84" />
-	</File>
-	<File name="code\characters\Character.h" open="1" top="0" tabpos="6">
-		<Cursor position="2066" topLine="43" />
-	</File>
-	<File name="code\characters\SinbadCharacter.cpp" open="1" top="0" tabpos="4">
-		<Cursor position="146" topLine="0" />
-	</File>
-	<File name="code\characters\SinbadCharacter.h" open="1" top="0" tabpos="3">
-		<Cursor position="869" topLine="12" />
-	</File>
-	<File name="code\tinyXml\XmlMgr.cpp" open="0" top="0" tabpos="0">
-		<Cursor position="90" topLine="0" />
-	</File>
-	<File name="code\tinyXml\XmlMgr.h" open="0" top="0" tabpos="0">
-		<Cursor position="285" topLine="3" />
-	</File>
-	<File name="code\tinyXml\tinyxml.h" open="0" top="0" tabpos="0">
-		<Cursor position="41823" topLine="1109" />
+	<File name="code\skyX\SkyX.h" open="0" top="0" tabpos="0">
+		<Cursor position="1594" topLine="228" />
 	</File>
 </CodeBlocks_layout_file>

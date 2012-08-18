@@ -3,7 +3,7 @@
 	"windows.h"
 	"Main.h"
 
-1344275542 c:\users\durium\lib\ogre3d\suncrafters\code\main.h
+1345212853 c:\users\durium\lib\ogre3d\suncrafters\code\main.h
 	"BaseApplication.h"
 	"PlayerMgr.h"
 
@@ -4916,12 +4916,13 @@
 	"Ogre.h"
 	<limits>
 
-1344887128 source:c:\users\durium\lib\ogre3d\suncrafters\code\main.cpp
+1345223767 source:c:\users\durium\lib\ogre3d\suncrafters\code\main.cpp
 	"Main.h"
 	"LevelManager.h"
 	"InputListener.h"
+	"SkyX.h"
 
-1344378137 source:c:\users\durium\lib\ogre3d\suncrafters\code\baseapplication.cpp
+1345212853 source:c:\users\durium\lib\ogre3d\suncrafters\code\baseapplication.cpp
 	"./BaseApplication.h"
 
 1344112132 source:c:\users\durium\lib\ogre3d\suncrafters\code\block.cpp
@@ -4930,20 +4931,20 @@
 1344112132 c:\users\durium\lib\ogre3d\suncrafters\code\block.h
 	"BaseApplication.h"
 
-1344960230 source:c:\users\durium\lib\ogre3d\suncrafters\code\chunk.cpp
+1345212853 source:c:\users\durium\lib\ogre3d\suncrafters\code\chunk.cpp
 	"Chunk.h"
 
-1344275542 c:\users\durium\lib\ogre3d\suncrafters\code\chunk.h
+1345212853 c:\users\durium\lib\ogre3d\suncrafters\code\chunk.h
 	"BaseApplication.h"
 	"Block.h"
 
-1344809482 source:c:\users\durium\lib\ogre3d\suncrafters\code\levelmanager.cpp
+1345212853 source:c:\users\durium\lib\ogre3d\suncrafters\code\levelmanager.cpp
 	"LevelManager.h"
 	"PathMgr.h"
 	<vector>
 	<iostream>
 
-1344552948 c:\users\durium\lib\ogre3d\suncrafters\code\levelmanager.h
+1345212853 c:\users\durium\lib\ogre3d\suncrafters\code\levelmanager.h
 	"BaseApplication.h"
 	"Chunk.h"
 	"Block.h"
@@ -5067,10 +5068,10 @@
 	"./tinyxml.h"
 	<windows.h>
 
-1345129557 source:c:\users\durium\lib\ogre3d\suncrafters\code\inputlistener.cpp
+1345212853 source:c:\users\durium\lib\ogre3d\suncrafters\code\inputlistener.cpp
 	"InputListener.h"
 
-1344626364 c:\users\durium\lib\ogre3d\suncrafters\code\inputlistener.h
+1345291090 c:\users\durium\lib\ogre3d\suncrafters\code\inputlistener.h
 	<ExampleFrameListener.h>
 	<OIS/OIS.h>
 	<fstream>
@@ -5119,28 +5120,28 @@
 	"OISInterface.h"
 	"OISEffect.h"
 
-1344959021 c:\users\durium\lib\ogre3d\suncrafters\code\playermgr.h
+1345212853 c:\users\durium\lib\ogre3d\suncrafters\code\playermgr.h
 	"BaseApplication.h"
 	"characters/Character.h"
 	"characters/SinbadCharacter.h"
 	<fstream>
 
-1344959427 source:c:\users\durium\lib\ogre3d\suncrafters\code\playermgr.cpp
+1345212853 source:c:\users\durium\lib\ogre3d\suncrafters\code\playermgr.cpp
 	"PlayerMgr.h"
 
-1344626258 c:\users\durium\lib\ogre3d\suncrafters\code\keymgr.h
+1345212853 c:\users\durium\lib\ogre3d\suncrafters\code\keymgr.h
 	<OIS/OIS.h>
 	"BaseApplication.h"
 	"PlayerMgr.h"
 	<map>
 	<fstream>
 
-1345126023 source:c:\users\durium\lib\ogre3d\suncrafters\code\keymgr.cpp
+1345212853 source:c:\users\durium\lib\ogre3d\suncrafters\code\keymgr.cpp
 	"KeyMgr.h"
 	"tinyXml/XmlMgr.h"
 	"PathMgr.h"
 
-1344465780 source:c:\users\durium\lib\ogre3d\suncrafters\code\pathmgr.cpp
+1345212853 source:c:\users\durium\lib\ogre3d\suncrafters\code\pathmgr.cpp
 	"PathMgr.h"
 	<fstream>
 	<stdlib.h>
@@ -5148,34 +5149,117 @@
 	<sys/stat.h>
 	<sys/types.h>
 
-1344465780 c:\users\durium\lib\ogre3d\suncrafters\code\pathmgr.h
+1345212853 c:\users\durium\lib\ogre3d\suncrafters\code\pathmgr.h
 	<string>
 
-1344532532 c:\users\durium\lib\ogre3d\suncrafters\code\tinyxml\xmlmgr.h
+1345212853 c:\users\durium\lib\ogre3d\suncrafters\code\tinyxml\xmlmgr.h
 	<fstream>
 	<string>
 	"tinyxml.h"
 
-1344958656 source:c:\users\durium\lib\ogre3d\suncrafters\code\tinyxml\xmlmgr.cpp
+1345212853 source:c:\users\durium\lib\ogre3d\suncrafters\code\tinyxml\xmlmgr.cpp
 	"XmlMgr.h"
 
 1344879707 c:\users\durium\lib\ogre3d\suncrafters\code\player.h
 	"BaseApplication.h"
 	<vector>
 
-1345129058 c:\users\durium\lib\ogre3d\suncrafters\code\characters\sinbadcharacter.h
+1345212853 c:\users\durium\lib\ogre3d\suncrafters\code\characters\sinbadcharacter.h
 	"Character.h"
 
 1344879700 source:c:\users\durium\lib\ogre3d\suncrafters\code\player.cpp
 	"Player.h"
 
-1345127822 source:c:\users\durium\lib\ogre3d\suncrafters\code\characters\sinbadcharacter.cpp
+1345212853 source:c:\users\durium\lib\ogre3d\suncrafters\code\characters\sinbadcharacter.cpp
 	"SinbadCharacter.h"
 
-1345125897 c:\users\durium\lib\ogre3d\suncrafters\code\characters\character.h
+1345212853 c:\users\durium\lib\ogre3d\suncrafters\code\characters\character.h
 	"../BaseApplication.h"
 	<vector>
 
-1345129332 source:c:\users\durium\lib\ogre3d\suncrafters\code\characters\character.cpp
+1345212853 source:c:\users\durium\lib\ogre3d\suncrafters\code\characters\character.cpp
 	"Character.h"
+
+1331234989 c:\users\durium\lib\ogre3d\suncrafters\code\skyx\skyx.h
+	"Prerequisites.h"
+	"MeshManager.h"
+	"AtmosphereManager.h"
+	"GPUManager.h"
+	"MoonManager.h"
+	"CloudsManager.h"
+	"ColorGradient.h"
+	"Controller.h"
+	"BasicController.h"
+	"VCloudsManager.h"
+	"VClouds/VClouds.h"
+	"VClouds/GeometryManager.h"
+	"VClouds/GeometryBlock.h"
+	"VClouds/FastFakeRandom.h"
+	"VClouds/Ellipsoid.h"
+	"VClouds/DataManager.h"
+
+1331431835 c:\users\durium\lib\ogre3d\suncrafters\code\skyx\prerequisites.h
+	<OGRE/Ogre.h>
+
+1331234978 c:\users\durium\lib\ogre3d\suncrafters\code\skyx\meshmanager.h
+	"Prerequisites.h"
+
+1331234978 c:\users\durium\lib\ogre3d\suncrafters\code\skyx\atmospheremanager.h
+	"Prerequisites.h"
+
+1331234978 c:\users\durium\lib\ogre3d\suncrafters\code\skyx\gpumanager.h
+	"Prerequisites.h"
+
+1331234978 c:\users\durium\lib\ogre3d\suncrafters\code\skyx\moonmanager.h
+	"Prerequisites.h"
+
+1331234978 c:\users\durium\lib\ogre3d\suncrafters\code\skyx\cloudsmanager.h
+	"Prerequisites.h"
+	"ColorGradient.h"
+
+1331234978 c:\users\durium\lib\ogre3d\suncrafters\code\skyx\colorgradient.h
+	"Prerequisites.h"
+
+1331234978 c:\users\durium\lib\ogre3d\suncrafters\code\skyx\controller.h
+	"Prerequisites.h"
+
+1331234978 c:\users\durium\lib\ogre3d\suncrafters\code\skyx\basiccontroller.h
+	"Prerequisites.h"
+	"Controller.h"
+
+1331234989 c:\users\durium\lib\ogre3d\suncrafters\code\skyx\vcloudsmanager.h
+	"Prerequisites.h"
+	"VClouds/VClouds.h"
+	"ColorGradient.h"
+
+1331234614 c:\users\durium\lib\ogre3d\suncrafters\code\skyx\vclouds\vclouds.h
+	"Prerequisites.h"
+	"VClouds/DataManager.h"
+	"VClouds/GeometryManager.h"
+	"VClouds/LightningManager.h"
+
+1331234614 c:\users\durium\lib\ogre3d\suncrafters\code\skyx\vclouds\datamanager.h
+	"Prerequisites.h"
+	"VClouds/FastFakeRandom.h"
+
+1331234614 c:\users\durium\lib\ogre3d\suncrafters\code\skyx\vclouds\fastfakerandom.h
+	"Prerequisites.h"
+
+1331234613 c:\users\durium\lib\ogre3d\suncrafters\code\skyx\vclouds\geometrymanager.h
+	"Prerequisites.h"
+	"VClouds/GeometryBlock.h"
+
+1331234613 c:\users\durium\lib\ogre3d\suncrafters\code\skyx\vclouds\geometryblock.h
+	"Prerequisites.h"
+
+1331234614 c:\users\durium\lib\ogre3d\suncrafters\code\skyx\vclouds\lightningmanager.h
+	"Prerequisites.h"
+	"Lightning.h"
+
+1345199748 c:\users\durium\lib\ogre3d\suncrafters\code\skyx\vclouds\lightning.h
+	"Prerequisites.h"
+
+1331234614 c:\users\durium\lib\ogre3d\suncrafters\code\skyx\vclouds\ellipsoid.h
+	"Prerequisites.h"
+	"VClouds/DataManager.h"
 

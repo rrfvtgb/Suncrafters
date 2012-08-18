@@ -28,7 +28,7 @@ class InputListener : public ExampleFrameListener, OIS::KeyListener, OIS::MouseL
 
         void addPlayer(PlayerMgr* player);
     private:
-        Ogre::SceneManager *mSceneMgr;
+        Ogre::SceneManager* mSceneMgr;
         bool mShutDown;
         std::ofstream flux;
 
