@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 #include "PathMgr.h"
 
 #include <fstream>
